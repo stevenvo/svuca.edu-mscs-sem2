@@ -1,0 +1,1236 @@
+From: "Saved by Windows Internet Explorer 7"
+Subject: 4.4.1 Average Case Analysis of BST Operations
+Date: Mon, 31 May 2010 16:53:56 -0700
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----=_NextPart_000_0009_01CB00E1.DC033370"
+X-MimeOLE: Produced By Microsoft MimeOLE V6.0.6001.18416
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_000_0009_01CB00E1.DC033370
+Content-Type: text/html;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://lcm.csa.iisc.ernet.in/dsa/node92.html
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>4.4.1 Average Case Analysis of BST Operations</TITLE>
+<META http-equiv=3DContent-Type content=3D"text/html; =
+charset=3Diso-8859-1">
+<META content=3D"4.4.1 Average Case Analysis of BST Operations" =
+name=3Ddescription>
+<META content=3Ddsa name=3Dkeywords>
+<META content=3Ddocument name=3Dresource-type>
+<META content=3Dglobal name=3Ddistribution>
+<META content=3D"MSHTML 6.00.6001.18444" name=3DGENERATOR><!--Converted =
+with LaTeX2HTML 98.1 release (February 19th, 1998)=0A=
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of =
+Leeds=0A=
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan=0A=
+* with significant contributions from:=0A=
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others --><LINK=20
+href=3D"http://lcm.csa.iisc.ernet.in/dsa/dsa.css" rel=3DSTYLESHEET><LINK =
+
+href=3D"node91.html" rel=3Dprevious><LINK href=3D"node91.html" =
+rel=3Dup><LINK=20
+href=3D"node93.html" rel=3Dnext></HEAD>
+<BODY><!--Navigation Panel--><A=20
+href=3D"http://lcm.csa.iisc.ernet.in/dsa/node93.html" =
+name=3Dtex2html1428></A><A=20
+href=3D"http://lcm.csa.iisc.ernet.in/dsa/node93.html" =
+name=3Dtex2html1428><IMG=20
+height=3D24 alt=3Dnext src=3D"" width=3D37 align=3Dbottom =
+border=3D0></A><A=20
+href=3D"http://lcm.csa.iisc.ernet.in/dsa/node91.html" =
+name=3Dtex2html1426></A><A=20
+href=3D"http://lcm.csa.iisc.ernet.in/dsa/node91.html" =
+name=3Dtex2html1426><IMG=20
+height=3D24 alt=3Dup src=3D"" width=3D26 align=3Dbottom =
+border=3D0></A><A=20
+href=3D"http://lcm.csa.iisc.ernet.in/dsa/node91.html" =
+name=3Dtex2html1422></A><A=20
+href=3D"http://lcm.csa.iisc.ernet.in/dsa/node91.html" =
+name=3Dtex2html1422><IMG=20
+height=3D24 alt=3Dprevious src=3D"" width=3D63 align=3Dbottom =
+border=3D0></A> <BR><B>Next:<A=20
+href=3D"http://lcm.csa.iisc.ernet.in/dsa/node93.html" =
+name=3Dtex2html1429></A></B><A=20
+href=3D"http://lcm.csa.iisc.ernet.in/dsa/node93.html" =
+name=3Dtex2html1429>4.5 Splay=20
+Trees</A><B>Up:<A href=3D"http://lcm.csa.iisc.ernet.in/dsa/node91.html"=20
+name=3Dtex2html1427></A></B><A =
+href=3D"http://lcm.csa.iisc.ernet.in/dsa/node91.html"=20
+name=3Dtex2html1427>4.4 Binary Search Tree</A><B>Previous:<A=20
+href=3D"http://lcm.csa.iisc.ernet.in/dsa/node91.html" =
+name=3Dtex2html1423></A></B><A=20
+href=3D"http://lcm.csa.iisc.ernet.in/dsa/node91.html" =
+name=3Dtex2html1423>4.4 Binary=20
+Search Tree</A>=20
+<P><!--End of Navigation Panel-->
+<H2><A name=3DSECTION00541000000000000000></A>4.4.1 Average Case =
+Analysis of BST=20
+Operations</H2><B>RESULT</B>=20
+<P>If we insert <I>n</I> random elements into an initially empty BST, =
+then the=20
+average path length from the root to a node is O(log n)=20
+<UL>
+  <LI>Note that the BST is formed by insertions only. Obviously the tree =
+so=20
+  formed need not be complete.=20
+  <LI>We shall assume that all orders of n inserted elements are equally =
+likely.=20
+  This means that any of the n! permutations is equally likely to be the =
+
+  sequence of keys inserted. </LI></UL>
+<TABLE cellPadding=3D3>
+  <TBODY>
+  <TR>
+    <TD align=3Dleft>Let</TD>
+    <TD align=3Dmiddle>&nbsp;</TD>
+    <TD align=3Dleft>&nbsp;</TD></TR>
+  <TR>
+    <TD align=3Dleft>P(n)</TD>
+    <TD align=3Dmiddle>=3D</TD>
+    <TD align=3Dleft>average path length in a BST with n nodes</TD></TR>
+  <TR>
+    <TD align=3Dleft>&nbsp;</TD>
+    <TD align=3Dmiddle>&nbsp;</TD>
+    <TD align=3Dleft>(average number of nodes on the path from the =
+root</TD></TR>
+  <TR>
+    <TD align=3Dleft>&nbsp;</TD>
+    <TD align=3Dmiddle>&nbsp;</TD>
+    <TD align=3Dleft>to a node, not necessarily a leaf)</TD></TR>
+  <TR>
+    <TD align=3Dleft>&nbsp;</TD>
+    <TD align=3Dmiddle>&nbsp;</TD>
+    <TD align=3Dleft>&nbsp;</TD></TR>
+  <TR>
+    <TD align=3Dleft>Let</TD>
+    <TD align=3Dmiddle>&nbsp;</TD>
+    <TD align=3Dleft>&nbsp;</TD></TR>
+  <TR>
+    <TD align=3Dleft>a</TD>
+    <TD align=3Dmiddle>=3D</TD>
+    <TD align=3Dleft>first element inserted. This will be the root =
+of</TD></TR>
+  <TR>
+    <TD align=3Dleft>&nbsp;</TD>
+    <TD align=3Dmiddle>&nbsp;</TD>
+    <TD align=3Dleft>the BST. Also this is equally likely to be the =
+first,=20
+    second</TD></TR>
+  <TR>
+    <TD align=3Dleft>&nbsp;</TD>
+    <TD align=3Dmiddle>&nbsp;</TD>
+    <TD align=3Dleft>. . . , <I>i</I>th, . . . , or nth in the sorted =
+order of=20
+      the</TD></TR>
+  <TR>
+    <TD align=3Dleft>&nbsp;</TD>
+    <TD align=3Dmiddle>&nbsp;</TD>
+    <TD align=3Dleft>n elements.</TD></TR></TBODY></TABLE>
+<P>Note that P(0) =3D 0 and P(1) =3D 1. Consider a fixed&nbsp;<!-- MATH: =
+$i, \ 0 \leq i=0A=
+\leq  n-1$ --><I>i</I>, 0&nbsp;<IMG=20
+height=3D42 alt=3D"$ \leq$" =
+src=3D"http://lcm.csa.iisc.ernet.in/dsa/img18.gif"=20
+width=3D25 align=3Dcenter border=3D0><I>i<IMG height=3D42 alt=3D"$ =
+\leq$"=20
+src=3D"http://lcm.csa.iisc.ernet.in/dsa/img18.gif" width=3D25 =
+align=3Dcenter=20
+border=3D0>n</I> - 1. If <I>i</I> elements are less than a, the BST will =
+look like=20
+in Figure <A=20
+href=3D"http://lcm.csa.iisc.ernet.in/dsa/node92.html#fig:bst1">4.16</A>. =
+
+<BR>&nbsp; <BR>&nbsp;=20
+<CENTER><A name=3Dfig:bst1></A><A name=3D4949></A></CENTER>
+<CENTER>
+<TABLE width=3D"50%">
+  <CAPTION><B>Figure 4.16:</B> A typical binary search tree with =
+<I>n</I>=20
+  elements</CAPTION>
+  <TBODY>
+  <TR>
+    <TD><IMG height=3D393=20
+      =
+alt=3D\begin{figure}\centerline{\psfig{figure=3Dfigures/Fbst1.ps}}\end{fi=
+gure}=20
+      src=3D"http://lcm.csa.iisc.ernet.in/dsa/img169.gif"=20
+width=3D319></TD></TR></TBODY></TABLE></CENTER>
+<DL compact>
+  <DT>&nbsp;<!-- MATH: \begin{itemize}=0A=
+\mbox{$\bullet$}=0A=
+\end{itemize} --><IMG=20
+  height=3D22 alt=3D"$ \mbox{$\bullet$}$"=20
+  src=3D"http://lcm.csa.iisc.ernet.in/dsa/img5.gif" width=3D18 =
+align=3Dbottom=20
+  border=3D0>=20
+  <DD>Since all orders for the <I>i</I> small elements are equally =
+likely and=20
+  likewise for the (<I>n</I> - <I>i</I> - 1) larger elements,=20
+  <P><BR>Average path length in the=20
+  <UL>
+    <LI>left subtree =3D P(<I>i</I>)=20
+    <LI>right subtree =3D P(<I>n</I> - <I>i</I> - 1) </LI></UL>
+  <DT>&nbsp;<!-- MATH: \begin{itemize}=0A=
+\mbox{$\bullet$}=0A=
+\end{itemize} --><IMG=20
+  height=3D22 alt=3D"$ \mbox{$\bullet$}$"=20
+  src=3D"http://lcm.csa.iisc.ernet.in/dsa/img5.gif" width=3D18 =
+align=3Dbottom=20
+  border=3D0>=20
+  <DD>For a fixed <I>i</I>, let us compute the average path length of =
+the above=20
+  tree.=20
+  <DD>Number of probes if the element a is being sought =3D 1=20
+  <DD>Average number of probes if an element from the LST is sought =3D=20
+  1+P(<I>i</I>)=20
+  <DD>Average number of probes if an element from the RST is sought =3D =
+1 +=20
+  P(<I>n</I> - <I>i</I> - 1)=20
+  <DD>Probability of seeking any of the n elements =3D&nbsp;<!-- MATH: =
+$\frac{1}{n}$ --><IMG height=3D51 alt=3D"$ {\frac{1}{n}}$"=20
+  src=3D"http://lcm.csa.iisc.ernet.in/dsa/img170.gif" width=3D21 =
+align=3Dcenter=20
+  border=3D0>=20
+  <DT>
+  <DD><MATH>Thus, average path length for a fixed <I>i</I>=20
+  <CENTER><!-- MATH: \begin{eqnarray}=0A=
+& =3D & \frac{1}{n} \left\{1 + i (1 + P(i)) + (n-i-1) (1 + P(n-i-=0A=
+1))\right\} \\=0A=
+& =3D & 1 + \frac{i}{n} P(i) + \frac{n-i-1}{n} P(n-i-1) \\=0A=
+& =3D & P(n, i), \ \ \ \mbox{say}.=0A=
+\nonumber=0A=
+\end{eqnarray} --></CENTER>
+  <CENTER>
+  <TABLE cellPadding=3D0 width=3D"100%">
+    <TBODY>
+    <TR vAlign=3Dcenter>
+      <TD noWrap align=3Dright>&nbsp;</TD>
+      <TD noWrap align=3Dmiddle width=3D10>=3D</TD>
+      <TD noWrap align=3Dleft><IMG height=3D75 alt=3D"$\displaystyle =
+{\frac{1}{n}}$"=20
+        src=3D"http://lcm.csa.iisc.ernet.in/dsa/img26.gif" width=3D25 =
+align=3Dcenter=20
+        border=3D0><IMG height=3D47=20
+        alt=3D"$\displaystyle \left\{\vphantom{1 + i (1 + P(i)) + =
+(n-i-1) (1 + P(n-i-1))}\right.$"=20
+        src=3D"http://lcm.csa.iisc.ernet.in/dsa/img171.gif" width=3D21 =
+align=3Dcenter=20
+        border=3D0>1 + <I>i</I>(1 + <I>P</I>(<I>i</I>)) + (<I>n</I> - =
+<I>i</I> -=20
+        1)(1 + <I>P</I>(<I>n</I> - <I>i</I> - 1))<IMG height=3D47=20
+        alt=3D"$\displaystyle \left.\vphantom{1 + i (1 + P(i)) + (n-i-1) =
+(1 + P(n-i-1))}\right\}$"=20
+        src=3D"http://lcm.csa.iisc.ernet.in/dsa/img172.gif" width=3D21 =
+align=3Dcenter=20
+        border=3D0></TD>
+      <TD align=3Dright width=3D10></TD></TR>
+    <TR vAlign=3Dcenter>
+      <TD noWrap align=3Dright>&nbsp;</TD>
+      <TD noWrap align=3Dmiddle width=3D10>=3D</TD>
+      <TD noWrap align=3Dleft>1 +&nbsp;<IMG height=3D75=20
+        alt=3D"$\displaystyle {\frac{i}{n}}$"=20
+        src=3D"http://lcm.csa.iisc.ernet.in/dsa/img173.gif" width=3D25 =
+align=3Dcenter=20
+        border=3D0><I>P</I>(<I>i</I>) +&nbsp;<IMG height=3D75=20
+        alt=3D"$\displaystyle {\frac{n-i-1}{n}}$"=20
+        src=3D"http://lcm.csa.iisc.ernet.in/dsa/img174.gif" width=3D103 =
+align=3Dcenter=20
+        border=3D0><I>P</I>(<I>n</I> - <I>i</I> - 1)</TD>
+      <TD align=3Dright width=3D10></TD></TR>
+    <TR vAlign=3Dcenter>
+      <TD noWrap align=3Dright>&nbsp;</TD>
+      <TD noWrap align=3Dmiddle width=3D10>=3D</TD>
+      <TD noWrap align=3Dleft><I>P</I>(<I>n</I>, <I>i</I>),&nbsp;&nbsp; =
+say.</TD>
+      <TD align=3Dright =
+width=3D10>&nbsp;</TD></TR></TBODY></TABLE></CENTER>
+  <DT>&nbsp;<!-- MATH: \begin{itemize}=0A=
+\mbox{$\bullet$}=0A=
+\end{itemize} --><IMG=20
+  height=3D22 alt=3D"$ \mbox{$\bullet$}$"=20
+  src=3D"http://lcm.csa.iisc.ernet.in/dsa/img5.gif" width=3D18 =
+align=3Dbottom=20
+  border=3D0>=20
+  <DD>Observe that <I>P</I>(<I>n</I>) is given by&nbsp;<!-- MATH: =
+\begin{displaymath}=0A=
+P(n) =3D \sum_{i=3D0}^{n-1} \  \ \mbox{Prob\{LST has $i$ nodes \}}  =
+P(n,i)=0A=
+\end{displaymath} -->=20
+
+  =
+<DD><I>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =
+
+  P</I>(<I>n</I>) =3D&nbsp;<IMG height=3D88 alt=3D"$\displaystyle =
+\sum_{i=3D0}^{n-1}$"=20
+  src=3D"http://lcm.csa.iisc.ernet.in/dsa/img107.gif" width=3D38 =
+align=3Dcenter=20
+  border=3D0>&nbsp; Prob{LST has $i$ nodes }<I>P</I>(<I>n</I>, <I>i</I>) =
+<BR>Since=20
+  the probability that the LST has <I>i</I> elements which is the same =
+as the=20
+  probability that <I>a</I> is the (<I>i</I> + 1th element =
+(where&nbsp;<!-- MATH: $i =3D 0,=0A=
+1, \ldots, n-1) =3D \frac{1}{n}$ --><I>i</I> =3D 0,=20
+  1,..., <I>n</I> - 1) =3D&nbsp;<IMG height=3D51 alt=3D"$ =
+{\frac{1}{n}}$"=20
+  src=3D"http://lcm.csa.iisc.ernet.in/dsa/img170.gif" width=3D21 =
+align=3Dcenter=20
+  border=3D0>, we have=20
+  <CENTER><!-- MATH: \begin{eqnarray}=0A=
+P(n) & =3D & \frac{1}{n} \sum_{i=3D0}^{n-1} \  P(n,i) \\\\=0A=
+& =3D & \frac{1}{n} \left\{\sum_{i=3D0}^{n-1} \  \left[1 + \frac{i}{n} =
+P(i) +=0A=
+\frac{n-i-1}{n} P(n-i-1\right]\right\} \\\\=0A=
+& =3D & 1 + \frac{1}{n^2} \ \sum_{i=3D0}^{n-1} \  \left[iP(i) + =0A=
+(n-i-1)P(n-i-1\right] \\\\=0A=
+& =3D &  1 + \frac{2}{n^2} \sum_{i=3D0}^{n-1} \ iP(i) =0A=
+\nonumber=0A=
+=0A=
+\end{eqnarray} --></CENTER>
+  <CENTER>
+  <TABLE cellPadding=3D0 width=3D"100%">
+    <TBODY>
+    <TR vAlign=3Dcenter>
+      <TD noWrap align=3Dright><I>P</I>(<I>n</I>)</TD>
+      <TD noWrap align=3Dmiddle width=3D10>=3D</TD>
+      <TD noWrap align=3Dleft><IMG height=3D75 alt=3D"$\displaystyle =
+{\frac{1}{n}}$"=20
+        src=3D"http://lcm.csa.iisc.ernet.in/dsa/img26.gif" width=3D25 =
+align=3Dcenter=20
+        border=3D0><IMG height=3D88 alt=3D"$\displaystyle =
+\sum_{i=3D0}^{n-1}$"=20
+        src=3D"http://lcm.csa.iisc.ernet.in/dsa/img107.gif" width=3D38 =
+align=3Dcenter=20
+        border=3D0> <I>P</I>(<I>n</I>, <I>i</I>)</TD>
+      <TD align=3Dright width=3D10></TD></TR>
+    <TR vAlign=3Dcenter>
+      <TD noWrap align=3Dright>&nbsp;</TD>
+      <TD>&nbsp;</TD>
+      <TD>&nbsp;</TD>
+      <TD align=3Dright width=3D10></TD></TR>
+    <TR vAlign=3Dcenter>
+      <TD noWrap align=3Dright>&nbsp;</TD>
+      <TD noWrap align=3Dmiddle width=3D10>=3D</TD>
+      <TD noWrap align=3Dleft><IMG height=3D75 alt=3D"$\displaystyle =
+{\frac{1}{n}}$"=20
+        src=3D"http://lcm.csa.iisc.ernet.in/dsa/img26.gif" width=3D25 =
+align=3Dcenter=20
+        border=3D0><IMG height=3D88=20
+        alt=3D"$\displaystyle \left\{\vphantom{\sum_{i=3D0}^{n-1} \space =
+\left[1 + \frac{i}{n} P(i) +\frac{n-i-1}{n} P(n-i-1\right]}\right.$"=20
+        src=3D"http://lcm.csa.iisc.ernet.in/dsa/img175.gif" width=3D25 =
+align=3Dcenter=20
+        border=3D0><IMG height=3D88 alt=3D"$\displaystyle =
+\sum_{i=3D0}^{n-1}$"=20
+        src=3D"http://lcm.csa.iisc.ernet.in/dsa/img107.gif" width=3D38 =
+align=3Dcenter=20
+        border=3D0><IMG height=3D75=20
+        alt=3D"$\displaystyle \left[\vphantom{1 + \frac{i}{n} P(i) =
++\frac{n-i-1}{n} P(n-i-1}\right.$"=20
+        src=3D"http://lcm.csa.iisc.ernet.in/dsa/img176.gif" width=3D19 =
+align=3Dcenter=20
+        border=3D0>1 +&nbsp;<IMG height=3D75 alt=3D"$\displaystyle =
+{\frac{i}{n}}$"=20
+        src=3D"http://lcm.csa.iisc.ernet.in/dsa/img173.gif" width=3D25 =
+align=3Dcenter=20
+        border=3D0><I>P</I>(<I>i</I>) +&nbsp;<IMG height=3D75=20
+        alt=3D"$\displaystyle {\frac{n-i-1}{n}}$"=20
+        src=3D"http://lcm.csa.iisc.ernet.in/dsa/img174.gif" width=3D103 =
+align=3Dcenter=20
+        border=3D0><I>P</I>(<I>n</I> - <I>i</I> - 1<IMG height=3D75=20
+        alt=3D"$\displaystyle \left.\vphantom{1 + \frac{i}{n} P(i) =
++\frac{n-i-1}{n} P(n-i-1}\right]$"=20
+        src=3D"http://lcm.csa.iisc.ernet.in/dsa/img177.gif" width=3D19 =
+align=3Dcenter=20
+        border=3D0><IMG height=3D88=20
+        alt=3D"$\displaystyle \left.\vphantom{\sum_{i=3D0}^{n-1} \space =
+\left[1 + \frac{i}{n} P(i) +\frac{n-i-1}{n} P(n-i-1\right]}\right\}$"=20
+        src=3D"http://lcm.csa.iisc.ernet.in/dsa/img178.gif" width=3D25 =
+align=3Dcenter=20
+        border=3D0></TD>
+      <TD align=3Dright width=3D10></TD></TR>
+    <TR vAlign=3Dcenter>
+      <TD noWrap align=3Dright>&nbsp;</TD>
+      <TD>&nbsp;</TD>
+      <TD>&nbsp;</TD>
+      <TD align=3Dright width=3D10></TD></TR>
+    <TR vAlign=3Dcenter>
+      <TD noWrap align=3Dright>&nbsp;</TD>
+      <TD noWrap align=3Dmiddle width=3D10>=3D</TD>
+      <TD noWrap align=3Dleft>1 +&nbsp;<IMG height=3D75=20
+        alt=3D"$\displaystyle {\frac{1}{n^2}}$"=20
+        src=3D"http://lcm.csa.iisc.ernet.in/dsa/img179.gif" width=3D35 =
+align=3Dcenter=20
+        border=3D0><IMG height=3D88 alt=3D"$\displaystyle =
+\sum_{i=3D0}^{n-1}$"=20
+        src=3D"http://lcm.csa.iisc.ernet.in/dsa/img107.gif" width=3D38 =
+align=3Dcenter=20
+        border=3D0><IMG height=3D47=20
+        alt=3D"$\displaystyle \left[\vphantom{iP(i) =
++(n-i-1)P(n-i-1}\right.$"=20
+        src=3D"http://lcm.csa.iisc.ernet.in/dsa/img180.gif" width=3D15 =
+align=3Dcenter=20
+        border=3D0><I>iP</I>(<I>i</I>) + (<I>n</I> - <I>i</I> -=20
+        1)<I>P</I>(<I>n</I> - <I>i</I> - 1<IMG height=3D47=20
+        alt=3D"$\displaystyle \left.\vphantom{iP(i) =
++(n-i-1)P(n-i-1}\right]$"=20
+        src=3D"http://lcm.csa.iisc.ernet.in/dsa/img181.gif" width=3D15 =
+align=3Dcenter=20
+        border=3D0></TD>
+      <TD align=3Dright width=3D10></TD></TR>
+    <TR vAlign=3Dcenter>
+      <TD noWrap align=3Dright>&nbsp;</TD>
+      <TD>&nbsp;</TD>
+      <TD>&nbsp;</TD>
+      <TD align=3Dright width=3D10></TD></TR>
+    <TR vAlign=3Dcenter>
+      <TD noWrap align=3Dright>&nbsp;</TD>
+      <TD noWrap align=3Dmiddle width=3D10>=3D</TD>
+      <TD noWrap align=3Dleft>1 +&nbsp;<IMG height=3D75=20
+        alt=3D"$\displaystyle {\frac{2}{n^2}}$"=20
+        src=3D"http://lcm.csa.iisc.ernet.in/dsa/img182.gif" width=3D35 =
+align=3Dcenter=20
+        border=3D0><IMG height=3D88 alt=3D"$\displaystyle =
+\sum_{i=3D0}^{n-1}$"=20
+        src=3D"http://lcm.csa.iisc.ernet.in/dsa/img107.gif" width=3D38 =
+align=3Dcenter=20
+        border=3D0> <I>iP</I>(<I>i</I>)</TD>
+      <TD align=3Dright =
+width=3D10>&nbsp;</TD></TR></TBODY></TABLE></CENTER>
+  <P><BR>since&nbsp;<!-- MATH: \begin{displaymath}=0A=
+\sum_{i=3D0}^{n-1} \ iP(i) =3D \sum_{i=3D0}^{n-1} \ (n-i-1) P(n-i-1)=0A=
+\end{displaymath} -->=20
+
+  <CENTER><IMG height=3D88 alt=3D"$\displaystyle \sum_{i=3D0}^{n-1}$"=20
+  src=3D"http://lcm.csa.iisc.ernet.in/dsa/img107.gif" width=3D38 =
+align=3Dcenter=20
+  border=3D0> <I>iP</I>(<I>i</I>) =3D&nbsp;<IMG height=3D88=20
+  alt=3D"$\displaystyle \sum_{i=3D0}^{n-1}$"=20
+  src=3D"http://lcm.csa.iisc.ernet.in/dsa/img107.gif" width=3D38 =
+align=3Dcenter=20
+  border=3D0> (<I>n</I> - <I>i</I> - 1)<I>P</I>(<I>n</I> - <I>i</I> - =
+1)</CENTER>
+  <DT>&nbsp;<!-- MATH: \begin{itemize}=0A=
+\mbox{$\bullet$}=0A=
+\end{itemize} --><IMG=20
+  height=3D22 alt=3D"$ \mbox{$\bullet$}$"=20
+  src=3D"http://lcm.csa.iisc.ernet.in/dsa/img5.gif" width=3D18 =
+align=3Dbottom=20
+  border=3D0>=20
+  <DD>Thus the average path length in a BST satisfies the =
+recurrence:&nbsp;<!-- MATH: \begin{displaymath}=0A=
+P(n) =3D 1 + \frac{2}{n^2}  \ \sum_{i=3D0}^{n-1} \ iP(i)=0A=
+\end{displaymath} -->=20
+
+  <CENTER><I>P</I>(<I>n</I>) =3D 1 +&nbsp;<IMG height=3D75=20
+  alt=3D"$\displaystyle {\frac{2}{n^2}}$"=20
+  src=3D"http://lcm.csa.iisc.ernet.in/dsa/img182.gif" width=3D35 =
+align=3Dcenter=20
+  border=3D0><IMG height=3D88 alt=3D"$\displaystyle \sum_{i=3D0}^{n-1}$" =
+
+  src=3D"http://lcm.csa.iisc.ernet.in/dsa/img107.gif" width=3D38 =
+align=3Dcenter=20
+  border=3D0> <I>iP</I>(<I>i</I>)</CENTER>
+  <DT>&nbsp;<!-- MATH: \begin{itemize}=0A=
+\mbox{$\bullet$}=0A=
+\end{itemize} --><IMG=20
+  height=3D22 alt=3D"$ \mbox{$\bullet$}$"=20
+  src=3D"http://lcm.csa.iisc.ernet.in/dsa/img5.gif" width=3D18 =
+align=3Dbottom=20
+  border=3D0>=20
+  <DD>We shall show=20
+  that&nbsp;<!-- MATH: $P(n) \leq 1 + 4 \log n$ =
+--><I>P</I>(<I>n</I>)&nbsp;<IMG=20
+  height=3D42 alt=3D"$ \leq$" =
+src=3D"http://lcm.csa.iisc.ernet.in/dsa/img18.gif"=20
+  width=3D25 align=3Dcenter border=3D0> 1 + 4log <I>n</I>, by Induction. =
+
+</DD></DL><B>Basis:</B>=20
+<DL compact>
+  <DD><I>P</I>(1) is known to be 1. Also the RHS =3D 1 for n =3D 1=20
+</DD></DL><B>Induction:</B>=20
+<DL compact>
+  <DD>Let the result be true&nbsp;<!-- MATH: $\forall \ i < n$ --><IMG =
+height=3D23=20
+  alt=3D"$ \forall$" src=3D"http://lcm.csa.iisc.ernet.in/dsa/img19.gif" =
+width=3D20=20
+  align=3Dbottom border=3D0> <I>i</I> &lt; <I>n</I>. We shall show that =
+the above is=20
+  true for <I>i</I> =3D <I>n</I>.=20
+  <P><BR>Consider=20
+  <CENTER><!-- MATH: \begin{eqnarray}=0A=
+P(n) & \leq & 1 + \frac{2}{n^2} \ \sum_{i=3D1}^{n-1} \  i(1 + 4 \log i)=0A=
+\\\\=0A=
+& =3D & 1 + \frac{2}{n^2} \ \sum_{i=3D1}^{n-1} \  4i \log i + =
+\frac{2}{n^2} \ \sum_{i=3D0}^{n-1} \  i \\\\=0A=
+ & \leq & 1 + \frac{2}{n^2} \ \sum_{i=3D1}^{n-1} \  4i \log i + =
+\frac{2}{n^2} \=0A=
+\left(\frac{n^2}{2}\right) \ \ \mbox{since} \  \sum_{i=3D1}^{n-1} \ i \ =
+\leq \frac{n^2}{2}=0A=
+\nonumber=0A=
+=0A=
+\end{eqnarray} --></CENTER>
+  <CENTER>
+  <TABLE cellPadding=3D0 width=3D"100%">
+    <TBODY>
+    <TR vAlign=3Dcenter>
+      <TD noWrap align=3Dright><I>P</I>(<I>n</I>)</TD>
+      <TD noWrap align=3Dmiddle width=3D10><IMG height=3D42=20
+        alt=3D"$\displaystyle \leq$"=20
+        src=3D"http://lcm.csa.iisc.ernet.in/dsa/img8.gif" width=3D25 =
+align=3Dcenter=20
+        border=3D0></TD>
+      <TD noWrap align=3Dleft>1 +&nbsp;<IMG height=3D75=20
+        alt=3D"$\displaystyle {\frac{2}{n^2}}$"=20
+        src=3D"http://lcm.csa.iisc.ernet.in/dsa/img182.gif" width=3D35 =
+align=3Dcenter=20
+        border=3D0><IMG height=3D88 alt=3D"$\displaystyle =
+\sum_{i=3D1}^{n-1}$"=20
+        src=3D"http://lcm.csa.iisc.ernet.in/dsa/img28.gif" width=3D38 =
+align=3Dcenter=20
+        border=3D0> <I>i</I>(1 + 4log <I>i</I>)</TD>
+      <TD align=3Dright width=3D10></TD></TR>
+    <TR vAlign=3Dcenter>
+      <TD noWrap align=3Dright>&nbsp;</TD>
+      <TD>&nbsp;</TD>
+      <TD>&nbsp;</TD>
+      <TD align=3Dright width=3D10></TD></TR>
+    <TR vAlign=3Dcenter>
+      <TD noWrap align=3Dright>&nbsp;</TD>
+      <TD noWrap align=3Dmiddle width=3D10>=3D</TD>
+      <TD noWrap align=3Dleft>1 +&nbsp;<IMG height=3D75=20
+        alt=3D"$\displaystyle {\frac{2}{n^2}}$"=20
+        src=3D"http://lcm.csa.iisc.ernet.in/dsa/img182.gif" width=3D35 =
+align=3Dcenter=20
+        border=3D0><IMG height=3D88 alt=3D"$\displaystyle =
+\sum_{i=3D1}^{n-1}$"=20
+        src=3D"http://lcm.csa.iisc.ernet.in/dsa/img28.gif" width=3D38 =
+align=3Dcenter=20
+        border=3D0> 4<I>i</I>log<I>i</I> +&nbsp;<IMG height=3D75=20
+        alt=3D"$\displaystyle {\frac{2}{n^2}}$"=20
+        src=3D"http://lcm.csa.iisc.ernet.in/dsa/img182.gif" width=3D35 =
+align=3Dcenter=20
+        border=3D0><IMG height=3D88 alt=3D"$\displaystyle =
+\sum_{i=3D0}^{n-1}$"=20
+        src=3D"http://lcm.csa.iisc.ernet.in/dsa/img107.gif" width=3D38 =
+align=3Dcenter=20
+        border=3D0> <I>i</I></TD>
+      <TD align=3Dright width=3D10></TD></TR>
+    <TR vAlign=3Dcenter>
+      <TD noWrap align=3Dright>&nbsp;</TD>
+      <TD>&nbsp;</TD>
+      <TD>&nbsp;</TD>
+      <TD align=3Dright width=3D10></TD></TR>
+    <TR vAlign=3Dcenter>
+      <TD noWrap align=3Dright>&nbsp;</TD>
+      <TD noWrap align=3Dmiddle width=3D10><IMG height=3D42=20
+        alt=3D"$\displaystyle \leq$"=20
+        src=3D"http://lcm.csa.iisc.ernet.in/dsa/img8.gif" width=3D25 =
+align=3Dcenter=20
+        border=3D0></TD>
+      <TD noWrap align=3Dleft>1 +&nbsp;<IMG height=3D75=20
+        alt=3D"$\displaystyle {\frac{2}{n^2}}$"=20
+        src=3D"http://lcm.csa.iisc.ernet.in/dsa/img182.gif" width=3D35 =
+align=3Dcenter=20
+        border=3D0><IMG height=3D88 alt=3D"$\displaystyle =
+\sum_{i=3D1}^{n-1}$"=20
+        src=3D"http://lcm.csa.iisc.ernet.in/dsa/img28.gif" width=3D38 =
+align=3Dcenter=20
+        border=3D0> 4<I>i</I>log<I>i</I> +&nbsp;<IMG height=3D75=20
+        alt=3D"$\displaystyle {\frac{2}{n^2}}$"=20
+        src=3D"http://lcm.csa.iisc.ernet.in/dsa/img182.gif" width=3D35 =
+align=3Dcenter=20
+        =
+border=3D0>tex2html_image_mark&gt;#tex2html_wrap_indisplay25297#=01<IMG=20
+        height=3D82 alt=3D"$\displaystyle {\frac{n^2}{2}}$"=20
+        src=3D"http://lcm.csa.iisc.ernet.in/dsa/img184.gif" width=3D35 =
+align=3Dcenter=20
+        border=3D0><IMG height=3D83=20
+        alt=3D"$\displaystyle \left.\vphantom{\frac{n^2}{2}}\right)$"=20
+        src=3D"http://lcm.csa.iisc.ernet.in/dsa/img185.gif" width=3D24 =
+align=3Dcenter=20
+        border=3D0>&nbsp; since&nbsp;<IMG height=3D88=20
+        alt=3D"$\displaystyle \sum_{i=3D1}^{n-1}$"=20
+        src=3D"http://lcm.csa.iisc.ernet.in/dsa/img28.gif" width=3D38 =
+align=3Dcenter=20
+        border=3D0> <I>i</I><IMG height=3D42 alt=3D"$\displaystyle =
+\leq$"=20
+        src=3D"http://lcm.csa.iisc.ernet.in/dsa/img8.gif" width=3D25 =
+align=3Dcenter=20
+        border=3D0><IMG height=3D82 alt=3D"$\displaystyle =
+{\frac{n^2}{2}}$"=20
+        src=3D"http://lcm.csa.iisc.ernet.in/dsa/img184.gif" width=3D35 =
+align=3Dcenter=20
+        border=3D0></TD>
+      <TD align=3Dright =
+width=3D10>&nbsp;</TD></TR></TBODY></TABLE></CENTER>
+  <P>Thus&nbsp;<!-- MATH: \begin{displaymath}=0A=
+P(n) \leq 2 + \frac{8}{n^2}  \sum_{i=3D1}^{n-1} \ i \log i=0A=
+\end{displaymath} -->=20
+  =
+<BR><I>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;=20
+  P</I>(<I>n</I>)&nbsp;<IMG height=3D42 alt=3D"$\displaystyle \leq$"=20
+  src=3D"http://lcm.csa.iisc.ernet.in/dsa/img8.gif" width=3D25 =
+align=3Dcenter=20
+  border=3D0> 2 +&nbsp;<IMG height=3D75 alt=3D"$\displaystyle =
+{\frac{8}{n^2}}$"=20
+  src=3D"http://lcm.csa.iisc.ernet.in/dsa/img186.gif" width=3D35 =
+align=3Dcenter=20
+  border=3D0><IMG height=3D88 alt=3D"$\displaystyle \sum_{i=3D1}^{n-1}$" =
+
+  src=3D"http://lcm.csa.iisc.ernet.in/dsa/img28.gif" width=3D38 =
+align=3Dcenter=20
+  border=3D0> <I>i</I>log <I>i</I> <BR>Now=20
+  <CENTER><!-- MATH: \begin{eqnarray}=0A=
+\sum_{i=3D1}^{n-1} \ i \log i & =3D  & \sum_{i=3D1}^{\lceil \frac{n}{2}=0A=
+\rceil -1} \ i \log i + \sum_{i=3D\lceil \frac{n}{2}\rceil}^{n-1} \ i =
+\log i \\\\=0A=
+& \leq & \sum_{i=3D1}^{\lceil \frac{n}{2} \rceil -1} \ i \log =
+\frac{n}{2} +=0A=
+\sum_{i=3D\lceil \frac{n}{2}\rceil}^{n-1} \ i \log n \\\\=0A=
+& \leq& \frac{n^2}{8} \log \frac{n}{2} + \frac{3n^2}{8} \log n \\\\=0A=
+& =3D & \frac{n^2}{2} \log n - \frac{n^2}{8}=0A=
+\nonumber=0A=
+=0A=
+\end{eqnarray} --></CENTER>
+  <CENTER>
+  <TABLE cellPadding=3D0 width=3D"100%">
+    <TBODY>
+    <TR vAlign=3Dcenter>
+      <TD noWrap align=3Dright><IMG height=3D88=20
+        alt=3D"$\displaystyle \sum_{i=3D1}^{n-1}$"=20
+        src=3D"http://lcm.csa.iisc.ernet.in/dsa/img28.gif" width=3D38 =
+align=3Dcenter=20
+        border=3D0> <I>i</I>log <I>i</I></TD>
+      <TD noWrap align=3Dmiddle width=3D10>=3D</TD>
+      <TD noWrap align=3Dleft><IMG height=3D100=20
+        alt=3D"$\displaystyle \sum_{i=3D1}^{\lceil \frac{n}{2}\rceil =
+-1}$"=20
+        src=3D"http://lcm.csa.iisc.ernet.in/dsa/img187.gif" width=3D57 =
+align=3Dcenter=20
+        border=3D0> <I>i</I>log<I>i</I> +&nbsp;<IMG height=3D88=20
+        alt=3D"$\displaystyle \sum_{i=3D\lceil =
+\frac{n}{2}\rceil}^{n-1}$"=20
+        src=3D"http://lcm.csa.iisc.ernet.in/dsa/img188.gif" width=3D54 =
+align=3Dcenter=20
+        border=3D0> <I>i</I>log <I>i</I></TD>
+      <TD align=3Dright width=3D10></TD></TR>
+    <TR vAlign=3Dcenter>
+      <TD noWrap align=3Dright>&nbsp;</TD>
+      <TD>&nbsp;</TD>
+      <TD>&nbsp;</TD>
+      <TD align=3Dright width=3D10></TD></TR>
+    <TR vAlign=3Dcenter>
+      <TD noWrap align=3Dright>&nbsp;</TD>
+      <TD noWrap align=3Dmiddle width=3D10><IMG height=3D42=20
+        alt=3D"$\displaystyle \leq$"=20
+        src=3D"http://lcm.csa.iisc.ernet.in/dsa/img8.gif" width=3D25 =
+align=3Dcenter=20
+        border=3D0></TD>
+      <TD noWrap align=3Dleft><IMG height=3D100=20
+        alt=3D"$\displaystyle \sum_{i=3D1}^{\lceil \frac{n}{2}\rceil =
+-1}$"=20
+        src=3D"http://lcm.csa.iisc.ernet.in/dsa/img187.gif" width=3D57 =
+align=3Dcenter=20
+        border=3D0> <I>i</I>log<IMG height=3D64 alt=3D"$\displaystyle =
+{\frac{n}{2}}$"=20
+        src=3D"http://lcm.csa.iisc.ernet.in/dsa/img23.gif" width=3D25 =
+align=3Dcenter=20
+        border=3D0> +&nbsp;<IMG height=3D88=20
+        alt=3D"$\displaystyle \sum_{i=3D\lceil =
+\frac{n}{2}\rceil}^{n-1}$"=20
+        src=3D"http://lcm.csa.iisc.ernet.in/dsa/img188.gif" width=3D54 =
+align=3Dcenter=20
+        border=3D0> <I>i</I>log <I>n</I></TD>
+      <TD align=3Dright width=3D10></TD></TR>
+    <TR vAlign=3Dcenter>
+      <TD noWrap align=3Dright>&nbsp;</TD>
+      <TD>&nbsp;</TD>
+      <TD>&nbsp;</TD>
+      <TD align=3Dright width=3D10></TD></TR>
+    <TR vAlign=3Dcenter>
+      <TD noWrap align=3Dright>&nbsp;</TD>
+      <TD noWrap align=3Dmiddle width=3D10><IMG height=3D42=20
+        alt=3D"$\displaystyle \leq$"=20
+        src=3D"http://lcm.csa.iisc.ernet.in/dsa/img8.gif" width=3D25 =
+align=3Dcenter=20
+        border=3D0></TD>
+      <TD noWrap align=3Dleft><IMG height=3D82=20
+        alt=3D"$\displaystyle {\frac{n^2}{8}}$"=20
+        src=3D"http://lcm.csa.iisc.ernet.in/dsa/img189.gif" width=3D35 =
+align=3Dcenter=20
+        border=3D0>log<IMG height=3D64 alt=3D"$\displaystyle =
+{\frac{n}{2}}$"=20
+        src=3D"http://lcm.csa.iisc.ernet.in/dsa/img23.gif" width=3D25 =
+align=3Dcenter=20
+        border=3D0> +&nbsp;<IMG height=3D82 alt=3D"$\displaystyle =
+{\frac{3n^2}{8}}$"=20
+        src=3D"http://lcm.csa.iisc.ernet.in/dsa/img190.gif" width=3D46 =
+align=3Dcenter=20
+        border=3D0>log <I>n</I></TD>
+      <TD align=3Dright width=3D10></TD></TR>
+    <TR vAlign=3Dcenter>
+      <TD noWrap align=3Dright>&nbsp;</TD>
+      <TD>&nbsp;</TD>
+      <TD>&nbsp;</TD>
+      <TD align=3Dright width=3D10></TD></TR>
+    <TR vAlign=3Dcenter>
+      <TD noWrap align=3Dright>&nbsp;</TD>
+      <TD noWrap align=3Dmiddle width=3D10>=3D</TD>
+      <TD noWrap align=3Dleft><IMG height=3D82=20
+        alt=3D"$\displaystyle {\frac{n^2}{2}}$"=20
+        src=3D"http://lcm.csa.iisc.ernet.in/dsa/img184.gif" width=3D35 =
+align=3Dcenter=20
+        border=3D0>log<I>n</I> -&nbsp;<IMG height=3D82=20
+        alt=3D"$\displaystyle {\frac{n^2}{8}}$"=20
+        src=3D"http://lcm.csa.iisc.ernet.in/dsa/img189.gif" width=3D35 =
+align=3Dcenter=20
+        border=3D0></TD>
+      <TD align=3Dright =
+width=3D10>&nbsp;</TD></TR></TBODY></TABLE></CENTER>
+  <P>Therefore&nbsp;<!-- MATH: \begin{displaymath}=0A=
+P(n) \leq 2 + \frac{8}{n^2} \left(\frac{n^2}{2} \log - \frac{n^2}{8} =
+\right)=0A=
+=3D 1 + 4 \log  n=0A=
+=0A=
+\end{displaymath} -->=20
+  =
+<BR><I>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;=20
+  P</I>(<I>n</I>)&nbsp;<IMG height=3D42 alt=3D"$\displaystyle \leq$"=20
+  src=3D"http://lcm.csa.iisc.ernet.in/dsa/img8.gif" width=3D25 =
+align=3Dcenter=20
+  border=3D0> 2 +&nbsp;<IMG height=3D75 alt=3D"$\displaystyle =
+{\frac{8}{n^2}}$"=20
+  src=3D"http://lcm.csa.iisc.ernet.in/dsa/img186.gif" width=3D35 =
+align=3Dcenter=20
+  border=3D0><IMG height=3D83=20
+  alt=3D"$\displaystyle \left(\vphantom{\frac{n^2}{2} \log - =
+\frac{n^2}{8} }\right.$"=20
+  src=3D"http://lcm.csa.iisc.ernet.in/dsa/img191.gif" width=3D24 =
+align=3Dcenter=20
+  border=3D0><IMG height=3D82 alt=3D"$\displaystyle {\frac{n^2}{2}}$"=20
+  src=3D"http://lcm.csa.iisc.ernet.in/dsa/img184.gif" width=3D35 =
+align=3Dcenter=20
+  border=3D0>log -&nbsp;<IMG height=3D82 alt=3D"$\displaystyle =
+{\frac{n^2}{8}}$"=20
+  src=3D"http://lcm.csa.iisc.ernet.in/dsa/img189.gif" width=3D35 =
+align=3Dcenter=20
+  border=3D0><IMG height=3D83=20
+  alt=3D"$\displaystyle \left.\vphantom{\frac{n^2}{2} \log - =
+\frac{n^2}{8} }\right)$"=20
+  src=3D"http://lcm.csa.iisc.ernet.in/dsa/img192.gif" width=3D24 =
+align=3Dcenter=20
+  border=3D0> =3D 1 + 4log <I>n</I> <BR>A more careful analysis can be =
+done and it=20
+  can be shown that&nbsp;<!-- MATH: \begin{displaymath}=0A=
+P(n) \leq 1 + 1.4 \log n=0A=
+\end{displaymath} --><I></I>=20
+
+  =
+<P><I>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;=20
+  P</I>(<I>n</I>)&nbsp;<IMG height=3D42 alt=3D"$\displaystyle \leq$"=20
+  src=3D"http://lcm.csa.iisc.ernet.in/dsa/img8.gif" width=3D25 =
+align=3Dcenter=20
+  border=3D0> 1 + 1.4log <I>n</I> <BR>&nbsp;</P></DD></DL></MATH>
+<HR>
+<!--Navigation Panel--><A =
+href=3D"http://lcm.csa.iisc.ernet.in/dsa/node93.html"=20
+name=3Dtex2html1428></A><A =
+href=3D"http://lcm.csa.iisc.ernet.in/dsa/node93.html"=20
+name=3Dtex2html1428><IMG height=3D24 alt=3Dnext src=3D"" width=3D37 =
+align=3Dbottom=20
+border=3D0></A><A href=3D"http://lcm.csa.iisc.ernet.in/dsa/node91.html"=20
+name=3Dtex2html1426></A><A =
+href=3D"http://lcm.csa.iisc.ernet.in/dsa/node91.html"=20
+name=3Dtex2html1426><IMG height=3D24 alt=3Dup src=3D"" width=3D26 =
+align=3Dbottom=20
+border=3D0></A><A href=3D"http://lcm.csa.iisc.ernet.in/dsa/node91.html"=20
+name=3Dtex2html1422></A><A =
+href=3D"http://lcm.csa.iisc.ernet.in/dsa/node91.html"=20
+name=3Dtex2html1422><IMG height=3D24 alt=3Dprevious src=3D"" width=3D63 =
+align=3Dbottom=20
+border=3D0></A> <BR><B>Next:<A =
+href=3D"http://lcm.csa.iisc.ernet.in/dsa/node93.html"=20
+name=3Dtex2html1429></A></B><A =
+href=3D"http://lcm.csa.iisc.ernet.in/dsa/node93.html"=20
+name=3Dtex2html1429>4.5 Splay Trees</A><B>Up:<A=20
+href=3D"http://lcm.csa.iisc.ernet.in/dsa/node91.html" =
+name=3Dtex2html1427></A></B><A=20
+href=3D"http://lcm.csa.iisc.ernet.in/dsa/node91.html" =
+name=3Dtex2html1427>4.4 Binary=20
+Search Tree</A><B>Previous:<A=20
+href=3D"http://lcm.csa.iisc.ernet.in/dsa/node91.html" =
+name=3Dtex2html1423></A></B><A=20
+href=3D"http://lcm.csa.iisc.ernet.in/dsa/node91.html" =
+name=3Dtex2html1423>4.4 Binary=20
+Search Tree</A><!--End of Navigation Panel-->=20
+<ADDRESS>eEL,CSA_Dept,IISc,Bangalore</ADDRESS></BODY></HTML>
+
+------=_NextPart_000_0009_01CB00E1.DC033370
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://lcm.csa.iisc.ernet.in/dsa/img18.gif
+
+R0lGODlhGQAqAOMAAAAAAJmZmXd3d1VVVe7u7szMzBEREaqqqoiIiGZmZv///0RERN3d3SIiIru7
+uwAAACH5BAEAAAoALAAAAAAZACoAQARiUMlJq71YsWREyaDQNA5YLWiqqofpvnAsUw2QEHOu73wf
+MwsA4rXpMHKMQGNR8lWUHZxzSq1ar1hMQTrbAJgyxsDGfUEF5VgCQJoqFy3nOa0TGIbZiWDP7/c/
+eYGCg4SFPREAOw==
+
+------=_NextPart_000_0009_01CB00E1.DC033370
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://lcm.csa.iisc.ernet.in/dsa/img169.gif
+
+R0lGODlhPwGJAYAAAAAAAP///yH5BAEAAAEALAAAAAA/AYkBQAL+jI+py+0Po5y0WgSy3uD6D4bi
+SJbmmJ1HCnEbw2JsvMa0iuf6zlNdP/kFXAlO8bUwKpDApvMJbQijlyn1is1qQdatzwsOi7FdFO2G
+GqvXbFW5jYHL53TJW32v6/f6/NPPFyg4OIRWBUiYqLho2IK4CBkZ9gjUKHmJGUQpqJHpSWf5SRIq
+WmpnukeKOqe6Kto5uOnaMis769B6G2FLyKu71OVCBCP8UyxsAkss68v5K2J5nDeclFs4dWaVfcQt
+VfscYij9VrystKtdrXyNfL70vSxzs65cn90M7GdtsA/+7npn3TVcTPL5wGYDmIxuNQh6C4fvTxB4
+/g5JCUjKRqj+edqMZey4UF4wij1s9asU8VnKPgcZUuMn5GVIMScr8iNpU1NOCyvr9LxV0+ZPVjwF
+wswHkl2NRgULwbwHddpQgDgd/juKtUjWrU4b/uM4cwhDhTu/UC2raZzatWzbun37tirah3PrTl11
+ty4jvbT4os1rCnBLv1sEv3LizpFXwicMf3LM2GfkJJOFVtZ6GRzkTJszr+l8CbRnmqPFlgZaWvTp
+wqlXy42s2jWZ1rJr276NO7fu3bwzJybbtbfwHEbtwCo+PIpbiMGCKk6Omoo4qAa7GdUI/TCc2Nkf
+B+LeHVJesI3Dj76rNpl52qnW2wbf131y0c7lm8duP38VHvX+9fvtLx18/hUmIE0ADlgSdAciyBWD
+z7m3oINcRKhDgc6c5RmFGKJi4XcYNdfRSOpAQd5EG14WDRr0xFOdTin8FlyMMm70GmMa4lXjddQZ
+9wgS59ATExMzILeYbzmqiN8R5PQjZHHbhCXjWEvpE6SUSRLRiUcIFakEkNZhUyNhKRJ0RlgFVQml
+RmUWGeOai3XYBCVdqtLUg5PA2d6JD5S4JzN4slnZn/ylJigoYVpUyo0cHirSS2oiM2NST0HK5459
+srfoeYUSpedkm0poWoagfobpqGB8up2pY6DaBmgwXgTofKUGSKaW4bHKBq4I6oqHqqSd5+skswZ7
+Ba+rEuv+hbG/IpuFssIy2+yw0CIm7bSVVGttttpuy20iRHZr6qtvOousQHWWQC633zriZ4hlJDmu
+lOA+GyeZSxFTTYPBKTrvfskq2SKbT3KZroSfFtwvNJIlnGmeDHuCMMIP44LDwOpNLIlj4n4gMcZX
+ocvnKB5n3MvIJPPRscmUsaQyZ5y2rN2yMHdK7cw58auvzf+dy07KOhto1c+EjoKz0CjHtq7R3uJa
+tNIVZ+zztlEX5TRxU1tdtU63Je1x03xxzazXtYm9Gtndmf1X1WinASzNNl5dM46aYosJ3HHafa3b
+YuKdoN47X+SuvEPKIy8XH0e5J6N6pRiiOoiADWQ6k6b+eRyNfn/9YcCOs8jj5FFaHCnFly+euUhQ
+PjViBfYsSXnhKygemOp8D+q2jlte1fjp5eketJG1H2MOIGC3CXrxoLtu45Eg9snUPsd19e7tAkvF
+eVFr5y136p5vP5A5srv+pEfIIw4yKHLCPteYsJopfVYhw0v8WMe/ProZmwyPGEaAX4r6+tP377+t
+NC8h9StWoaazLnc46kw+auDqOJIlBr4oMbNbmXHGx7sAnqqCFUJf6NDxvVVxkDjoM8LGeoaOE5Jo
+hE8r4F9Y6AYPluV6e3EhCBMFw91lj2iG8gANFZHDUO2CcGYiYve4Mg8jeolgcdBgoGCXtCFRr3UA
+zBf++5AyRVG5sBzso8b73NUk+Rkjfvhq2w5RFER0yXAnP/TWGm+WNRNpMY7x8R0dE2fGO9LFjnqE
+Ad30mEaR9XGPKBokIZ+oHJ7NpI0q+SM08KcQRv4ikGxL5EfQdCtH0pGSCjOkBfnoSfrNMZSiBCUp
+ORkOUmJmlKpEpeFUWcpCwvImeWylJuPoSo7NkpasPOUts5ZLH+5SiLKcZTD9Zcxfqk2Zw2ymM58J
+zWhKc5rUrCYQ8Qc/a+KQSuTTZi8U2SJJYixyx6ym7TrozbQcxBfndNySzAVObVLIGuS0IhOvmE4M
+moF5VSzc4IAjznEqZ3/3Ak5IphOraUpyeUYs6EH+kZRQaP4JIdFrDqDgNwNqHjCfxUoVR+PWqo9i
+Tw7lhJazSkqsdKHUVwVb6agiJlIdJkMmgoxpJxsjKTXa9Kb8Qc9OeYrTiOryp6+caU5rSlRkgoyi
+MUyqMN2wOpk6VXWxmOpQv2PVq7Isq09dGFe16tGvFjWkYgXqscqKVHqhtZL/WmtTo+XWCnHHpSbr
+DF1tdqOAxtWhablrKyG1VzcaNLDm6xxhSTWhw2pBUXrlKtkaa9OF+lVbkO2nYg/ZqsnuqmOQ/Gll
+9/nVz8qVqKLNH0fvWtpgpVaEmrWMbFZ7n9b6ULZ1oy1o62rb0SYMtirhrV2s5VvN5PYzwY3dyIr+
+Gwnkjm24IQSmsuAC3ehKd7rLAQh1r4vd7MKFmSWbWy0TNbTvxsw3zCUmeL3by/GikbtVRa8p1Ruo
+8gZRvsdkxhuFUjruVbFyQWIq0bhpljPGl6ANRdwYC9y0o9bRuBnKL1+VkkIeaUlNiwwjhDHrHfcq
+CbBY5OcF+Vqp3OWMlw0jL4Etu+F3DgaAFv1fBs0LX085GMUb1l6ExZJRg35RdAKW8Yn3W1Ebp7C/
+0aOiUOcbXhs3RYLeW3HOwofEaVQlPe5s0lqMai8nF7PEADPdRTF5xBErlcTdLGN6MyzkMF/nxyVR
+MP/ODLEf265HuYjcKhlY4zAPFpE9nhRNp7T+EXpaLMRWyuJ70aw5Pec5zVluoI6PGmj2XijN9ahe
+gRUzQSe174NmrhjekGxpC3c50ex68D1d3OlLN/dkPR5HlRmnQoG5s1EmVGTRgns+G7JRf+xq8aKx
+YuWKtliCUWlin9/mxFWqWXIsNp6xl92+QT+bwbnCA6+D9yOKUgrSRPZiTi017fO2mc6dbXOyaTwu
+Q38wgd8GkZu4LEJrn1tfYBZHlF3yLlS3ySUelKKc/CTvVGNxiYC2R6Fp7WyvdGBgoDasmF9szztJ
+GqtaEyrE90ygiaNMy48q0Z/LbECNO+yGFi+5PhMp8q2S/OEmvzjKxYvo9cI8zhrmM7x9PHP+l9Xc
+U/etiHLbeuy9pdyrj/z5qrdM7duGlWo5r1tQSdoMoy+232AWICax9KJ+XsmBVIx000NT8XuLndNW
+x7cYXc7yxUGRTrbSoMe9fmr9Rhzp4vawVb61Y3STfYDXPjTNhzztRxk779yrurQzKHW4Bn3WtAZ0
+o/wMecc7XoERjGfiZ6Prm8m35/64fEczj9+h97DBon+Zib/Oar8PcvO7ZH0yUb/J0tdV9selfdds
+L1DY4xL3E3M9LH1vS90Dk/cPA74vhb9M5Bv1kp6nOJytBrmqK4j4U3rkeozv6XL/M5PKZ04rDH4f
+6jPvQ7HODfY9eX5Dpn/14u/X+vv4fkCctn9e8b9j/WPffaPdf/f5F9r+h99/P/N/yfd88Dd/4DKA
+TpOASrOA+neA3dKA/veA6jKBUlOBlHWB2RKBApiBwNWB07KBOhOCePWBJlWCYXOC5ZKCKbWCqtWC
+LKVdMSiDM1hel2WDN4iDOaiDO8iDPeiDPwiEQSiEsVUT5TeE3vc40neEchV9S3g3eCc+Tgh9SaiE
+UsgxkMRFUFAAADs=
+
+------=_NextPart_000_0009_01CB00E1.DC033370
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://lcm.csa.iisc.ernet.in/dsa/img5.gif
+
+R0lGODlhEgAWAOMAAAAAAJmZmXd3d1VVVe7u7jMzM8zMzBEREaqqqoiIiGZmZv///0RERN3d3SIi
+IgAAACH5BAEAAAsALAAAAAASABYAQAQ7cMlJq72YNsA7b1l4JZ6XiGiqpsHhOUbGlB0TIgU3xGvv
+/z+EQMDLEGiAAwEzQ9ouAiRAkFHQAsCsJAIAOw==
+
+------=_NextPart_000_0009_01CB00E1.DC033370
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://lcm.csa.iisc.ernet.in/dsa/img170.gif
+
+R0lGODlhFQAzAOMAAAAAAJmZmXd3d1VVVe7u7jMzM8zMzBEREaqqqoiIiGZmZv///93d3SIiIru7
+uwAAACH5BAEAAAsALAAAAAAVADMAQAR5cMlJq71TAMy7/9gwSMSBDASormybbW6LLE0hMYAR73wb
+FA1YSxMjqgDIpFLYuyhEigSikfoYAA5JQcEINL/gsHjMISSKzJVxmFatVQxBASAQkO94DCG7YPA/
+CAgKADMLWEd2CwkHKgkwOA4CZx4MVQt7eZmam5wVEQA7
+
+------=_NextPart_000_0009_01CB00E1.DC033370
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://lcm.csa.iisc.ernet.in/dsa/img26.gif
+
+R0lGODlhGQBLAOMAAAAAAJmZmXd3d1VVVe7u7jMzM8zMzBEREaqqqoiIiGZmZv///0RERN3d3SIi
+Iru7uyH5BAEAAAsALAAAAAAZAEsAQASwcMlJq71WCAMY/lYHjmRpnuhEiJMCGGksz3QtsfNa2Dwd
+JAlAgIFYBB8n3IKxewh60OgpMLApZddYVsrter+jxlMAKEoagKfJhZQE0otAo9SmNOrgvH7P7y80
+DlsogkkeNYQmiCWKJIwYDAyBAAUMan6XYACam5ycmJ+gJAECcwsGGqUlVW8OBBNwJASuBQCubgB4
+IwiwEgcOKIEUDABzVSRoCRQJDggCtqHQ0dLTPBEAOw==
+
+------=_NextPart_000_0009_01CB00E1.DC033370
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://lcm.csa.iisc.ernet.in/dsa/img171.gif
+
+R0lGODlhFQAvAOMAAAAAAJmZmXd3d1VVVe7u7hEREaqqqmZmZv///0RERN3d3SIiIru7uwAAAAAA
+AAAAACH5BAEAAAgALAAAAAAVAC8AQARUEMlJq70IJHyJGYvBjdlGnmiqrto6ta7EHImgxHiuG8AR
+wysCUHUAMHBDVWGhazqf0GhUQbMpmT+TK5ninooBlQd0jAm1LLTKe2KTBD2pfE6v25sRADs=
+
+------=_NextPart_000_0009_01CB00E1.DC033370
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://lcm.csa.iisc.ernet.in/dsa/img172.gif
+
+R0lGODlhFQAvAOMAAAAAAJmZmXd3d1VVVe7u7jMzM8zMzBEREWZmZv///0RERN3d3SIiIru7uwAA
+AAAAACH5BAEAAAkALAAAAAAVAC8AQARZMMlJq70UKMwlCYzQEF2llWiqrmxytu6mLoKCGHCu7xNR
+HIvcqwUo5ASAAGy4WgAGvKh0Sq02awgSzAldyohfFnOFSOZAIm2qKAyvxip4yQdoWO/4vH6vigAA
+Ow==
+
+------=_NextPart_000_0009_01CB00E1.DC033370
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://lcm.csa.iisc.ernet.in/dsa/img173.gif
+
+R0lGODlhGQBLAOMAAAAAAJmZmXd3d1VVVe7u7jMzM8zMzBEREaqqqoiIiGZmZv///0RERN3d3SIi
+Iru7uyH5BAEAAAsALAAAAAAZAEsAQAS8cMlJq704a5tA2GAojmRIAAylAEbpvnAsK8QCCLEjKIjs
+y4FEJ8DodR4jFIVRWDxwv6jU1UnAGoLPi9BYDABdGEDhtE7P6LT6hV0IAD1J4zZaISUBeiC8uVMa
+fmuCg4SFPgYHZjEthhcGDAQFiiQEZAgeMSdNOQA1UC6YAzUwD3yNp4YAqqusrKivsCMBAmEGArQj
+Awt5DqM2nxoENQWdE3mBG5fABw4kDgBLYF4hc5MJDggCvrHc3d7fZxEAOw==
+
+------=_NextPart_000_0009_01CB00E1.DC033370
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://lcm.csa.iisc.ernet.in/dsa/img174.gif
+
+R0lGODlhZwBLAOMAAAAAAJmZmXd3d1VVVe7u7jMzM8zMzBEREaqqqoiIiGZmZv///0RERN3d3SIi
+Iru7uyH5BAEAAAsALAAAAABnAEsAQAT+cMlJq7046827/2AojhTAiAggUIdDegkQvKBJ33iu73zv
+/8CgUEKwTRQAw3DJbDqf0Kh0Ss0NFgGAgzBRARVc79D4aQASlIQDIeD+HAIFIshgOACAAmNV7fv/
+gCIBCTEBDHMxD4FRZAsMBQsPfIuUlZaXmJkkMWg/AgJ3JyEBAg0SBp+mQQ0CM0uNHARcBQBuWACK
+GJ+7vL1KFgSmAwCqF73Hu78asB13FAzEC1c/AAqRnUHMmtvc3d7f4OHi40CsCwIAcxJmk+QvSLm3
+KwHF7iLxEw349vz9/v8AAwocSLCbgQPYgASYZjDIJwPaCnaImGFQoUMLEgExwIBAgYSXQCheMIdO
+3QJ2PwhYS+FKiEgMRURJQKLMAjJkNSsUgZTh5rGcF15egDchy7x6O+5waUdN5odGjyIx3SFDmq2U
+ee5Z0DfkAVKJYMOKHcsIj9mzaNOqXcu2rdu3cAGQnUu3rt27PkipQlUK75UsW7pMFStrAS1bWfbN
+TdGuBd4FziZAE2bXTEI1bK4+3sy5s+fPoEOLHj02AgA7
+
+------=_NextPart_000_0009_01CB00E1.DC033370
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://lcm.csa.iisc.ernet.in/dsa/img107.gif
+
+R0lGODlhJgBYAOMAAAAAAJmZmXd3d1VVVe7u7jMzM8zMzBEREaqqqoiIiGZmZv///0RERN3d3SIi
+Iru7uyH5BAEAAAsALAAAAAAmAFgAQAT+cMlJq7046y1J0gbwSIXSBFwlAGnrcsYBAMprV0RxGLe2
+jjbFoEdMAQSuh2hyLDqf0ChGOFAkEA7CbSWNKmfDl6GAvH2bXQoBUEgvBrO4fE6P81oPrWsp4W8e
+DWZ5boSFhoeIXBgICw5tCw0Ad5APlZaWgROKGANhBAcIA3opDQIFR2WIHCszCZevlgECAw5xNS4K
+Mzs2AUC4dqoLDLqjbisohDm7LwiMGyGPGwQPsrUAB8FbqRwPOznbGNQBkgsC5ufoZUq+aBoKDAQO
+5enpE1USAdjZ+/z9/v8AAwq0EKBALQ3TJDTwZWOThWa5nPlx4fACmgT6JDygd45hxQqWCVhAEiHg
+w4uPFBqMSjiwpYthdWLWmbRBBoAsLgzkApBpVRyTLj4V23CKzVA342aAc/NpBgNVIWcwTCYDp6GI
+h8bdKvTJaqFcU1M46KlhHFA8p5whlMlWzlKX+8y9KCWAphsG6g4ctWDuQCBYrzT6abfojTw8g99W
+QMATCUd0TJBFCstXiFoO8QQUtAu3s+fPoEOLthEBADs=
+
+------=_NextPart_000_0009_01CB00E1.DC033370
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://lcm.csa.iisc.ernet.in/dsa/img175.gif
+
+R0lGODlhGQBYAOMAAAAAAJmZmXd3d1VVVe7u7jMzM8zMzBEREaqqqoiIiGZmZv///0RERN3d3SIi
+Iru7uyH5BAEAAAsALAAAAAAZAFgAQAS0cMlJq714BpY7AF0ofWKHAEV5EcXRqB4IX+R8OUBi73zv
+Lw+Ag+CrFWU2FiDwkxCMPShP2qxar1ie8tHDvY5Nqk08I5cIBwevUXB8m4NlGBmlT+07s0ohbxoO
+OVmCg4SFhoeCBAyBPDgCPnyPYD96JZUilyGZMXOdPk94M3xMWgUAXDtsAAg/LAcGfkJNAQAclKFl
+uDCbGbwYvjS6KsAWxBWAbzxBKT9/p00EfIjT1NXW14cRADs=
+
+------=_NextPart_000_0009_01CB00E1.DC033370
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://lcm.csa.iisc.ernet.in/dsa/img176.gif
+
+R0lGODlhEwBLAMIAAAAAAHd3d8zMzGZmZv///0RERN3d3bu7uyH5BAEAAAQALAAAAAATAEsAQANi
+SLrc7mCEaR48NgOc3+4eBzLfaJ5oqjYl2p6vGY8zWK94rlu3JsI/WZA2tBU7Pd7Rp0qGmoCoc0et
+Wq/YR2G7FQibSyV4nJqyws8y+kJ2rc9tYPyrnhPtxqaEku37/4CBIwkAOw==
+
+------=_NextPart_000_0009_01CB00E1.DC033370
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://lcm.csa.iisc.ernet.in/dsa/img177.gif
+
+R0lGODlhEwBLAMIAAAAAAJmZmXd3d8zMzP///0RERLu7uwAAACH5BAEAAAQALAAAAAATAEsAQANp
+SLrczkFIYJ5V9NqsHe/MB2LVaJ5omoojC7odrMkXrd547pWn/fi7Fc8EbBRDw1bytYw1HQWA9Kir
+Wq/YLENQ6BYGwjCKShL3njX0Rv1jB8duYxxpJs4XZEJ+fy/D6xcRE31ahYaHiIcJADs=
+
+------=_NextPart_000_0009_01CB00E1.DC033370
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://lcm.csa.iisc.ernet.in/dsa/img178.gif
+
+R0lGODlhGQBYAOMAAAAAAJmZmXd3d1VVVe7u7jMzM8zMzBEREaqqqoiIiGZmZv///0RERN3d3SIi
+Iru7uyH5BAEAAAsALAAAAAAZAFgAQASkcMlJq73VsIC7B4AnSuAoFgBieghQEKtVxtdMTwkw3Hzv
+/xKCA/AALmw+5E8BUCQBsJ+SNzVar9jsKtC0NgAOY5U2jpVXZ/QhCjQ4djwu/CkOAdMjvIfrvBGY
+L1qCg4SFhodaf11GAjqMi1J2kXWUd5J0lpWRbD18j4FAOXNxkFQABj8MAByTma6tsJixPXodXwdA
+KEWdLpwxD02+iMPExcbHhhEAOw==
+
+------=_NextPart_000_0009_01CB00E1.DC033370
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://lcm.csa.iisc.ernet.in/dsa/img179.gif
+
+R0lGODlhIwBLAOMAAAAAAJmZmXd3d1VVVe7u7jMzM8zMzBEREaqqqoiIiGZmZv///0RERN3d3SIi
+Iru7uyH5BAEAAAsALAAAAAAjAEsAQATocMlJq704UyEMYFoofmJpnmiqSg8hIUBwEuSkAMaq73zv
+/7oakEIrDI+qB6eBCiQSMQZiAX1sCq6FzCRcMIxKpHhMbg7KXWT6uC6733CywZFbwLbIBNbUECwE
+AFMSDQB+Cw0HAIqKWSU3VhIBhVpMPJAUDZdxm5ydnp+gSBwObUClP6c+qT2rPK07rykMDKQABQyG
+obq7rou+v8C/vMMLCgmHBUZDD5OHzWJfTQKVBksWCg6VJmeSDo3PBgcID0qCIQQuBQCNkpo7MLkL
+Bw5ApBQMAExnPITHEwkOEAhoRKygwYMIEyaMAAA7
+
+------=_NextPart_000_0009_01CB00E1.DC033370
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://lcm.csa.iisc.ernet.in/dsa/img180.gif
+
+R0lGODlhDwAvAKEAAAAAAHd3d////0RERCH5BAEAAAIALAAAAAAPAC8AQAI4lI+ZE+rsFIy02vva
+nXYAMGDiKHKVSaGRmmEsCcfyTHtgp+FufvKpvwK2NkJJcXFEvGjMpvM5KwAAOw==
+
+------=_NextPart_000_0009_01CB00E1.DC033370
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://lcm.csa.iisc.ernet.in/dsa/img181.gif
+
+R0lGODlhDwAvAKEAAAAAAHd3d////7u7uyH5BAEAAAIALAAAAAAPAC8AQAI4lI+pNrDaXoqy2ouZ
+u1QGAGbiiHWVKaGPurDQRsbyTMtfyMGnnvKr3wK+SsJJEeEyEmvMpvM5KwAAOw==
+
+------=_NextPart_000_0009_01CB00E1.DC033370
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://lcm.csa.iisc.ernet.in/dsa/img182.gif
+
+R0lGODlhIwBLAOMAAAAAAJmZmXd3d1VVVe7u7jMzM8zMzBEREaqqqoiIiGZmZv///0RERN3d3SIi
+Iru7uyH5BAEAAAsALAAAAAAjAEsAQAT+cMlJq704zyfoAwehjZgyiGSqrmzrPigCBCsBMJQCGG7v
+/8CgcEix7Ya2AmO5BBCfLY6gwQokEjMGYoF9UAQFFE11ozAKCw50zW63CAIHSEElMsqTAqCzJhxC
+UGAoC1ZuhoeIiRIGDjwLMmNrCWEqDR0CAFsSDXubBwCgoIMkOl4SAZ0BdT+mFA2tirGys7S1tmsF
+U49/jkIKDL0LoJFAAQzEn3ySeGtnq08BCm0BlBMKsD8Dodtot97fQdvi4+Sg4OcLCgkLDQXdRB98
+nMrN7ykBugsGAvk5Ds8kBhAC4GBQp0UHEDzgoGkEARF6BqHC5kMGvQMOiMgxA4CKQCASnNZNSOAA
+gYBR6FKqXMmyJcsIADs=
+
+------=_NextPart_000_0009_01CB00E1.DC033370
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://lcm.csa.iisc.ernet.in/dsa/img19.gif
+
+R0lGODlhFAAXAOMAAAAAAJmZmXd3d+7u7jMzM8zMzKqqqoiIiGZmZv///0RERN3d3SIiIru7uwAA
+AAAAACH5BAEAAAkALAAAAAAUABcAQARdMMlJq5ULrJv3lQ1QSEDznWhFEE3brumkAEpsX0xwBsxn
+9BaGAZU5TA4am4CQIAhuEx10SqVIdxdB7aN4XrrZ7YemKJtFKORgMgAYUwimhIC4CRM/aCbkuRkA
+Qx8RADs=
+
+------=_NextPart_000_0009_01CB00E1.DC033370
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://lcm.csa.iisc.ernet.in/dsa/img8.gif
+
+R0lGODlhGQAqAOMAAAAAAJmZmXd3d1VVVe7u7szMzBEREaqqqoiIiGZmZv///0RERN3d3SIiIru7
+uwAAACH5BAEAAAoALAAAAAAZACoAQARiUMlJq71YsWREyaDQNA5YLWiqqofpvnAsUw2QEHOu73wf
+MwsA4rXpMHKMQGNR8lWUHZxzSq1ar1hMQTrbAJgyxsDGfUEF5VgCQJoqFy3nOa0TGIbZiWDP7/c/
+eYGCg4SFPREAOw==
+
+------=_NextPart_000_0009_01CB00E1.DC033370
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://lcm.csa.iisc.ernet.in/dsa/img28.gif
+
+R0lGODlhJgBYAOMAAAAAAJmZmXd3d1VVVe7u7jMzM8zMzBEREaqqqoiIiGZmZv///0RERN3d3SIi
+Iru7uyH5BAEAAAsALAAAAAAmAFgAQAT+cMlJq7046y1J0gbwSIXSBFwlAGnrcsYBAMprV0RxGLe2
+jjbFoEdMAQS3VXHJbDo3woEigXAQkqxn8zEDDF+GAvLGnY21EwKggF4MuvC4PM5rPa42pevRaPv/
+gIGCRXoXCAsObAsNAHWLD5CRkX0ThRcDXwQHCAN4KQ0CBUdngz5dCZKpkQECAw5dNS4KMzs2AUCy
+XY6BDLSebSsofjm1LwiHGyGKGwQPrK8AB6VJpBsBBa92AQGNCwLf4OHVllAMBA7e4uIqWdPu7/Dx
+8vP09RfX2RnNEg24ee0Wjs1CJgLLhiMSEkib8EAdOH/kKiTIwqjhhxcRKTTwtM+eRxd4veaInLNL
+gwwAVlwYmAWAEocVMy660PRrg6g1NdtwMyNI0wwGgybO8DdMRkpAAwNxi/VH09E/s4imcOBSAzeZ
+dkQh06BmpNcu1T6++2bDQ6mMGL4d6KMqFbsWh1wZhNsSicNwb1sIELKVAyhRZMUKHky4sOHDRSIA
+ADs=
+
+------=_NextPart_000_0009_01CB00E1.DC033370
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://lcm.csa.iisc.ernet.in/dsa/img184.gif
+
+R0lGODlhIwBSAOMAAAAAAJmZmXd3d1VVVe7u7jMzM8zMzBEREaqqqoiIiGZmZv///0RERN3d3SIi
+Iru7uyH5BAEAAAsALAAAAAAjAFIAQAT+cMlJq704a+OMRECgUcMSAA4xAYLUHEAcq6MLJFTiIAJd
+/8CgcCgkxDxEi7HAaDYByah0Sq1aqYmC7wdqTQ6Oq3gcfXglD8Bha1UM2OS4fE4fmgWN+IMGEgED
+eBIGAoEUAloSfiMEKgUAPicPVg5QEwwAeSV1m5ydYgQClAcKeVeXDBSOZ58Ha2OHkDies7S1tre4
+uUEKOA0FBWNpXg0scwzAcQoOpX8JCSEMCAvPkoIHCA9m0jUNLQIA2wvEq1JGqBMKAEhU6dUmxQHM
+UQDnEscLZlXuEw37uv8Ak8gYSLBgwYAIrRQIhKDVOnYMHsZQNCUAA4owyF15Vm/MMXkYVwIokBMA
+ETp/UQYYRJawpcuXMGPKdBkBADs=
+
+------=_NextPart_000_0009_01CB00E1.DC033370
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://lcm.csa.iisc.ernet.in/dsa/img185.gif
+
+R0lGODlhGABTAOMAAAAAAJmZmXd3d1VVVe7u7jMzM8zMzBEREaqqqoiIiGZmZv///0RERN3d3SIi
+Iru7uyH5BAEAAAsALAAAAAAYAFMAQAS5cMlJq71UgIc7VoDhjRKwkd1jopjGsJY6wBRzEHRS4HTv
+/8AYIBCcaBJFV1AFCDIASJ9K4WM4eMWsFlgQaAPDLJhYPDiKBMDZCfACEerlCsgMamZAE7Y3CAEd
+BUA2eyxpbluIiYqLjEEIh0BpCGgOV0VWWZhlgY5tRX0Ncnh5TWxkP3d2AC90cz91raWvrj5wB6qs
+P0+QPSYceWs/CVBBB7dAGr9SYbO8MCpRPsPKPQWjjdjZ2tvciREAOw==
+
+------=_NextPart_000_0009_01CB00E1.DC033370
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://lcm.csa.iisc.ernet.in/dsa/img186.gif
+
+R0lGODlhIwBLAOMAAAAAAJmZmXd3d1VVVe7u7jMzM8zMzBEREaqqqoiIiGZmZv///0RERN3d3SIi
+Iru7uyH5BAEAAAsALAAAAAAjAEsAQAT+cMlJq704UxCoK1pYCQxFFEAirmzrvu5DSAjXEkA5KYAB
+/8CgcEgkDgA5Q0FQlCQOvt2h0azGBAJqK5BIcBiIhfdBERRmiw4rR2GAHkyrfE5/BVAHhbb4sEmr
+BAoFDkgMaEQAZBUMOkUEAVhRdZOUlRQGDlE1anIJZywNTAIAYRINAHENB0ishyI8immoaXtAsRMN
+t5a7vL2+v8CVAgcdgVBNfSMATTgHpQsHcU2jSApySwSPq59EDpwSBmzd0hPR0w4CDwgKDLXB7/BD
+rPP09fXx+DsqDQUgVX2pZtFx4wKSFgNY3C1Q4EChhgGyHBwSuMCAswdwnmnItgDFoQAiiYrUIHfA
+QRNCbQBQgSjklIoJCRwgEOAqn82bOHPq3FkhAgA7
+
+------=_NextPart_000_0009_01CB00E1.DC033370
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://lcm.csa.iisc.ernet.in/dsa/img187.gif
+
+R0lGODlhOQBkAOMAAAAAAJmZmXd3d1VVVe7u7jMzM8zMzBEREaqqqoiIiGZmZv///0RERN3d3SIi
+Iru7uyH5BAEAAAsALAAAAAA5AGQAQAT+cMlJq7046/vYFcUgIN4nbBiRbB2aCadbCYB8FUDu2Hxf
+HTqCzaDINXxIAhBQQjpRAYDiSaUQctisdouNVb+zGhgjUAwQtgYIABu73/C4fE53tSyB6cKB8FLa
+PjQsTRgIB0IWgHWLczgABYiMSUAOkZIXRQ8+DkeXnhloAzs9gp+mp6ipqqsWdxYABgsJeol+NqUZ
+roFeDQ++v7+dE7gYuhQFsQGHJj1qOIqthBUGDg8ElsO2rKwMXN7esXQ0OSs8SthxUTna27JYmu0T
+RWjtSpXxUeU2Dzj08Z7QXKioA+NAJ2AIff0RMwcBADUSYEicCI3Yv4sYM2rcyLGjx4/1dQwcYEDS
+SqxeiUg6YAfG2AID1E40OECGZYYABRwwLCZNwkwJBRAEEJYNicVoF65JIBCultGdHHp+g6roAcWJ
+8IZBRXrBAIOcWWfY1HC0gkugaBoACFtUztkJItm2ldO0AgEGsRIQnUBgL8i/gKmMA5AgYcIAAkRh
+oRXnAZYBPQwUGPulCIADdV0EkPtGZA7G8SzDwuh4XcZul9GtIlAA80UaAS5eKSC7dWYUCPzFocF5
+g5k5Bh4JfIBY5+U5A6Yqz3E7sHMZATXg1LnIWqCtbohHCXeV4sJFbK7XUcCAwKjuE7/XeeD3ufv3
+8OPLn0+/vv33EQAAOw==
+
+------=_NextPart_000_0009_01CB00E1.DC033370
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://lcm.csa.iisc.ernet.in/dsa/img188.gif
+
+R0lGODlhNgBYAOMAAAAAAJmZmXd3d1VVVe7u7jMzM8zMzBEREaqqqoiIiGZmZv///0RERN3d3SIi
+Iru7uyH5BAEAAAsALAAAAAA2AFgAQAT+cMlJq7046837IonHGcAjFUoTiJIAsHAss8YBAMqsd0Rx
+GLudywRTDIJI5CMQAAAXgqh0Kpg8GLpoknLV1IgW7XZMLnuMA0UC4SDEXOb47nEDHGmFqlxCv+n3
+PAAFgBsDdYeIiYhPMmIeXRdOCwk5F44WCgwEDi1UVFZYFwYMBQ5gFZeEqqusra5mcEgICw6DCw2S
+Eg0PvL29DRSxSAN3BAcIA24eDQIFAKmvgC43Cb7WvQECAw51lWYKNz8wAadl4DeM0RcM4crqEy4r
+7xI94iwIs2MkthsESwLcAByYR1BCDQYIgxUYIABBKHgIHfy58MDdo4cUAlRygGAiPI/+FZ7BgNQI
+JBdgLEhWKDALV7lOZtJRIMAASAKUFQjgLMizp8+fQIMK5RCg1Isk/nS99CBsBz5w+Uq8OZpE5KSB
+VjxJOdV0R4KjLgWEYNFVRwN3SYeqncdOkVtFMpPYANBGhIFzO7dMAzBWhDGLY5wJAjyviR+fxm5g
+LPj1xlJ1ievyhNqziTeCxiQXBPdYg4O8SJr0feQs3xYCb1MfMrm2NSACQHYJYY1BpUEDEm9hDUN7
+hm1dWFkGAA3t4wGU16yBukBAGWwMxRfM2jZy8YLUqGgjAMCsk1ZHv0VEh2LEdIfwCwoACXCAMJTe
+MtBPQNDeEvwY8nFXdD/ejGC6rgUHKOCABAISAQA7
+
+------=_NextPart_000_0009_01CB00E1.DC033370
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://lcm.csa.iisc.ernet.in/dsa/img23.gif
+
+R0lGODlhGQBAAOMAAAAAAJmZmXd3d1VVVe7u7jMzM8zMzBEREaqqqoiIiGZmZv///0RERN3d3SIi
+Iru7uyH5BAEAAAsALAAAAAAZAEAAQATMcMlJq72ziSUAysCGWY/VlGOqqoTgAIfSrClxHASt73zP
+KwDUIhAaznzIZIUBYFAKRZ6gkJMEEsqsVntNAAKMj1e4IjQpQMPuPGEUFg/Rdk6vp+KUB6yKNAPU
+PgoDfDtmBQyIiAB2jI2OjzwBAkcGApM7A0MADnxRLDlQfERkKgieCwcOPC8UTDOZKw0AWBMJDggC
+hJC7vBYAv8DBwb3EPAWXCDeAOgoMywu/ATtg0hMHpz1eTkluRz4BCkoBVGikKQPCv2/F7O3u7xcR
+ADs=
+
+------=_NextPart_000_0009_01CB00E1.DC033370
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://lcm.csa.iisc.ernet.in/dsa/img189.gif
+
+R0lGODlhIwBSAOMAAAAAAJmZmXd3d1VVVe7u7jMzM8zMzBEREaqqqoiIiGZmZv///0RERN3d3SIi
+Iru7uyH5BAEAAAsALAAAAAAjAFIAQAT+cMlJq704a+OMRECgUcMSAA4xAYLUHEAcq6MLJFTiIAJd
+/8CgcDgaxBiGQouISRw8E8Whwaxar9is9poo+H6gpeTg2JrP1hDFUdgKGBRC4Yau2+945kMgoKIf
+NCAiQAF9EgZ8fhMCXhKDIwQqcz4nD1oOABQMAFQleZ+goWcBcwcKilkPalEHZgQKBZgADF9XAJYV
+DHBbBIUCUKLBwsPExcZmCjgNBW1mqksNLHcMzWgKDqg1AQkJIQwIC924CwYHCA974DUNLQIA6gvR
+YlcEsxQKAMBX+OMnLQHZiNibQG3BnlQWGow7xrAhFhkQI0qU6LCiGQEHRLx6skVVBXcwvACYm3Bg
+XhZ3MRSgURIpAIxGWRw8OjQQiwOTC0q6ufkAgQIGAS0KHUq0qNGjRyMAADs=
+
+------=_NextPart_000_0009_01CB00E1.DC033370
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://lcm.csa.iisc.ernet.in/dsa/img190.gif
+
+R0lGODlhLgBSAOMAAAAAAJmZmXd3d1VVVe7u7jMzM8zMzBEREaqqqoiIiGZmZv///0RERN3d3SIi
+Iru7uyH5BAEAAAsALAAAAAAuAFIAQAT+cMlJq704672NMxICBBxlMA4wENSwBIDDSoCwNAeg63Mp
+MIlH4KBoTBqABCXhQAh6pah0Sq1aOQMdw1CwXamJA2iiOBi/6LR6zW67Nw+ehKCzJgpQeALKADAm
+Il4SBw5vhoeIFyMUDgWJFD8UBAVJj5aXmJmaUg8CAmdSBQogDZQIUw8zIiRWAjUUAZ8SBp6gCwJ4
+EqxVdGYLBCyUPTAPaQcHxRM6ShIpFH1GLpvT1NXWGQGURLaPcbsLZZkECgUpfnmIAMnPf5gEsQJj
+1/P09fb3+PmGCkqljlIEBKQgIq9EHC9IBG3AIW2BiEJWGPyLkuCUhDgQpyhwwG0KDAWSsBIkGMHg
+1MhkBg4geNDJIpVSYiQ0sOHKZUJDKQTRaSdBAYCCVnQo7MPT5zoYNgJ0lCLgW5wDPfw8c9RJzTsB
+CTquO7JVn9ev03aIHUu2rNkdYNPaE3CAxLiYl+JUcOUOgMoJBxRacqUDpKYuwIYAyGXJwbcFBqQW
+1rsgLyaBAh4gUMBgqdrLmDNr3sy5s+cKEQAAOw==
+
+------=_NextPart_000_0009_01CB00E1.DC033370
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://lcm.csa.iisc.ernet.in/dsa/img191.gif
+
+R0lGODlhGABTAOMAAAAAAJmZmXd3d1VVVe7u7jMzM8zMzBEREaqqqoiIiGZmZv///0RERN3d3SIi
+Iru7uyH5BAEAAAsALAAAAAAYAFMAQATBcMlJq71YitMyTkDgZQIgjNkDMKgHAK13wDFp1qMBGHjv
+/z/HgeAbAB7AF3ChYi2NyOXCQZMudFGrditlnHwFB5Da8TUAA+C5sGQc1QA2sLmkL2dSxG0JSkgJ
+AApWJQhaDE5ciYqLjI0+BAxlPgKIPTp+PwEAhZl7j2hLBQBEnZg/eHOePgpvQDOkP0qplT12P7Y+
+uJZxUrJAblmTqj1ntD1GPEA6aUuEUkKwjwdDSwQFxj0CDtGPDl+O4OHi4+QtEQA7
+
+------=_NextPart_000_0009_01CB00E1.DC033370
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://lcm.csa.iisc.ernet.in/dsa/img192.gif
+
+R0lGODlhGABTAOMAAAAAAJmZmXd3d1VVVe7u7jMzM8zMzBEREaqqqoiIiGZmZv///0RERN3d3SIi
+Iru7uyH5BAEAAAsALAAAAAAYAFMAQAS5cMlJq71UgIc7VoDhjRKwkd1jopjGsJY6wBRzEHRS4HTv
+/8AYIBCcaBJFV1AFCDIASJ9K4WM4eMWsFlgQaAPDLJhYPDiKBMDZCfACEerlCsgMamZAE7Y3CAEd
+BUA2eyxpbluIiYqLjEEIh0BpCGgOV0VWWZhlgY5tRX0Ncnh5TWxkP3d2AC90cz91raWvrj5wB6qs
+P0+QPSYceWs/CVBBB7dAGr9SYbO8MCpRPsPKPQWjjdjZ2tvciREAOw==
+
+------=_NextPart_000_0009_01CB00E1.DC033370
+Content-Type: text/css;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+Content-Location: http://lcm.csa.iisc.ernet.in/dsa/dsa.css
+
+.MATH {
+	FONT-FAMILY: "Century Schoolbook", serif
+}
+.MATH I {
+	FONT-WEIGHT: bold; FONT-FAMILY: "Century Schoolbook", serif
+}
+.BOLDMATH {
+	FONT-WEIGHT: bold; FONT-FAMILY: "Century Schoolbook", serif
+}
+SMALL.XTINY {
+	FONT-SIZE: xx-small
+}
+SMALL.TINY {
+	FONT-SIZE: x-small
+}
+SMALL.SCRIPTSIZE {
+	FONT-SIZE: smaller
+}
+SMALL.FOOTNOTESIZE {
+	FONT-SIZE: small
+}
+SMALL.SMALL {
+	
+}
+BIG.LARGE {
+	
+}
+BIG.XLARGE {
+	FONT-SIZE: large
+}
+BIG.XXLARGE {
+	FONT-SIZE: x-large
+}
+BIG.HUGE {
+	FONT-SIZE: larger
+}
+BIG.XHUGE {
+	FONT-SIZE: xx-large
+}
+
+------=_NextPart_000_0009_01CB00E1.DC033370--

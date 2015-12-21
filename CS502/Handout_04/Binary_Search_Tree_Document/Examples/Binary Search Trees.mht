@@ -1,0 +1,321 @@
+From: "Saved by Windows Internet Explorer 7"
+Subject: Binary Search Trees
+Date: Mon, 31 May 2010 16:55:46 -0700
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----=_NextPart_000_005D_01CB00E2.1D7273C0"
+X-MimeOLE: Produced By Microsoft MimeOLE V6.0.6001.18416
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_000_005D_01CB00E2.1D7273C0
+Content-Type: text/html;
+	charset="Windows-1252"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.cs.auckland.ac.nz/software/AlgAnim/niemann/s_bin.htm
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Binary Search Trees</TITLE>
+<META http-equiv=3DContent-Type content=3D"text/html; =
+charset=3Dwindows-1252">
+<META content=3D"MSHTML 6.00.6001.18444" name=3DGENERATOR></HEAD>
+<BODY bgColor=3D#ffffff>
+<P align=3Dright><A=20
+href=3D"http://www.cs.auckland.ac.nz/software/AlgAnim/niemann/s_man.htm" =
+
+target=3D_top><IMG height=3D19=20
+src=3D"http://www.cs.auckland.ac.nz/software/AlgAnim/niemann/c_man.gif" =
+width=3D74=20
+border=3D0></A> </P>
+<H1>Binary Search Trees</H1>In the introduction we used the <A=20
+href=3D"http://www.cs.auckland.ac.nz/software/AlgAnim/niemann/s_int.htm#F=
+ig1-3">binary=20
+search algorithm</A> to find data stored in an array. This method is =
+very=20
+effective, as each iteration reduced the number of items to search by =
+one-half.=20
+However, since data was stored in an array, insertions and deletions =
+were not=20
+efficient. Binary search trees store data in nodes that are linked in a=20
+tree-like fashion. For randomly inserted data, search time is =
+<B><I>O</I></B>(lg=20
+<I>n</I>). Worst-case behavior occurs when ordered data is inserted. In =
+this=20
+case the search time is <B><I>O</I></B>(<I>n</I>). See <A=20
+href=3D"http://www.amazon.com/exec/obidos/ISBN=3D0262031418/none01A/"=20
+target=3D_top>Cormen [1990]</A> for a more detailed description.=20
+<H2>Theory</H2>A binary search tree is a tree where each node has a left =
+and=20
+right child. Either child, or both children, may be missing. Figure 3-2=20
+illustrates a binary search tree. Assuming <I>k</I> represents the value =
+of a=20
+given node, then a binary search tree also has the following property: =
+all=20
+children to the left of the node have values smaller than <I>k</I>, and =
+all=20
+children to the right of the node have values larger than <I>k</I>. The =
+top of a=20
+tree is known as the <I>root</I>, and the exposed nodes at the bottom =
+are known=20
+as <I>leaves</I>. In Figure 3-2, the root is node 20 and the leaves are =
+nodes 4,=20
+16, 37, and 43. The <I>height</I> of a tree is the length of the longest =
+path=20
+from root to leaf. For this example the tree height is 2.=20
+<P>
+<CENTER>
+<H3><A name=3DFig3-2><IMG height=3D158=20
+src=3D"http://www.cs.auckland.ac.nz/software/AlgAnim/niemann/s_fig32.gif"=
+=20
+width=3D409 vspace=3D5><BR>Figure 3-2: A Binary Search Tree</A> =
+</H3></CENTER>
+<P>To search a tree for a given value, we start at the root and work =
+down. For=20
+example, to search for 16, we first note that 16 &lt; 20 and we traverse =
+to the=20
+left child. The second comparison finds that 16 &gt; 7, so we traverse =
+to the=20
+right child. On the third comparison, we succeed.=20
+<P>Each comparison results in reducing the number of items to inspect by =
+
+one-half. In this respect, the algorithm is similar to a binary search =
+on an=20
+array. However, this is true only if the tree is balanced. For example, =
+Figure=20
+3-3 shows another tree containing the same values. While it is a binary =
+search=20
+tree, its behavior is more like that of a linked list, with search time=20
+increasing proportional to the number of elements stored.=20
+<P>
+<CENTER>
+<H3><A name=3DFig3-3><IMG height=3D266=20
+src=3D"http://www.cs.auckland.ac.nz/software/AlgAnim/niemann/s_fig33.gif"=
+=20
+width=3D409 vspace=3D5><BR>Figure 3-3: An Unbalanced Binary Search =
+Tree</A>=20
+</H3></CENTER>
+<P>
+<H2>Insertion and Deletion</H2>Let us examine insertions in a binary =
+search tree=20
+to determine the conditions that can cause an unbalanced tree. To insert =
+an 18=20
+in the tree in Figure 3-2, we first search for that number. This causes =
+us to=20
+arrive at node 16 with nowhere to go. Since 18 &gt; 16, we simply add =
+node 18 to=20
+the right child of node 16 (Figure 3-4).=20
+<P>Now we can see how an unbalanced tree can occur. If the data is =
+presented in=20
+an ascending sequence, each node will be added to the right of the =
+previous=20
+node. This will create one long chain, or linked list. However, if data =
+is=20
+presented for insertion in a random order, then a more balanced tree is=20
+possible.=20
+<P>Deletions are similar, but require that the binary search tree =
+property be=20
+maintained. For example, if node 20 in Figure 3-4 is removed, it must be =
+
+replaced by node 37. This results in the tree shown in Figure 3-5. The =
+rationale=20
+for this choice is as follows. The successor for node 20 must be chosen =
+such=20
+that all nodes to the right are larger. Therefore we need to select the =
+smallest=20
+valued node to the right of node 20. To make the selection, chain once =
+to the=20
+right (node 38), and then chain to the left until the last node is found =
+(node=20
+37). This is the successor for node 20.=20
+<P>
+<CENTER>
+<H3><A name=3DFig3-4><IMG height=3D218=20
+src=3D"http://www.cs.auckland.ac.nz/software/AlgAnim/niemann/s_fig34.gif"=
+=20
+width=3D409 vspace=3D5><BR>Figure 3-4: Binary Tree After Adding Node =
+18</A>=20
+</H3></CENTER>
+<P>
+<P>
+<CENTER>
+<H3><A name=3DFig3-5><IMG height=3D218=20
+src=3D"http://www.cs.auckland.ac.nz/software/AlgAnim/niemann/s_fig35.gif"=
+=20
+width=3D409 vspace=3D5><BR>Figure 3-5: Binary Tree After Deleting Node =
+20</A>=20
+</H3></CENTER>
+<P>
+<H2>Implementation</H2>An <A=20
+href=3D"http://www.cs.auckland.ac.nz/software/AlgAnim/niemann/s_bin.txt">=
+ANSI-C=20
+implementation</A> for a binary search tree is included. <B>Typedef =
+T</B> and=20
+comparison operators <B>compLT</B> and <B>compEQ</B> should be altered =
+to=20
+reflect the data stored in the tree. Each <B>Node</B> consists of =
+<B>left</B>,=20
+<B>right</B>, and <B>parent</B> pointers designating each child and the =
+parent.=20
+Data is stored in the <B>data</B> field. The tree is based at =
+<B>root</B>, and=20
+is initially <B>NULL</B>. Function <B>insertNode</B> allocates a new =
+node and=20
+inserts it in the tree. Function <B>deleteNode</B> deletes and frees a =
+node from=20
+the tree. Function <B>findNode</B> searches the tree for a particular =
+value.=20
+</BODY></HTML>
+
+------=_NextPart_000_005D_01CB00E2.1D7273C0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.cs.auckland.ac.nz/software/AlgAnim/niemann/c_man.gif
+
+R0lGODlhSgATAJEAAAAAAEJCQs7Ozv///yH5BAAAAAAALAAAAABKABMAgQAAAEJCQs7Ozv///wKa
+nI+py+3fhJy02ouz3jYMDobiKHnkiZ5myo7BC8PV2tZbjM/fBFR9CvhJgkSbjhLkCVHLISuQoQl6
+1OnwV7Rqk06f8tqcvTBSbNdpNvPO6637kuvs2NtkupsNq6tacZxS5nVnNaiGhPcGiCMDONeHZweJ
+xaX3NcWluMhY4mjEVCPleRJGEip6ymGKugrXyfqaqSk7S1tre/tSAAA7
+
+------=_NextPart_000_005D_01CB00E2.1D7273C0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.cs.auckland.ac.nz/software/AlgAnim/niemann/s_fig32.gif
+
+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
+AAA7
+
+------=_NextPart_000_005D_01CB00E2.1D7273C0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.cs.auckland.ac.nz/software/AlgAnim/niemann/s_fig33.gif
+
+R0lGODlhmQEKAYAAAAAAAP///yH5BAAAAAAALAAAAACZAQoBgAAAAP///wL+jI+py+0Po5y02ouz
+3rz7D4biSJbmiabqyrbuC8fyTNf2jef6zvcGAAwKgb6i8YhMkogPpvIJjUp9QUp1is1qtyHnxcsN
+i8digMdMTqvXR/SZDY/LYe73/I7Pf+p2vf8PyMC3F1homDcIknjI2Ki12OcoOQkFSUiJmUmVYqnp
++anSeQlKWsoZapqq2oUhuuC6GiurAJsAJlE7q7uae3Ab0bsrDBpsFhxwPKxMWYzcugwt24uWnBx9
+DTj984zd/Zk7dGztTR5X/VWePnluMa7+XsbiDk+fNW9Vn+93j6vvf8cPQsB/BDehGFgwYQ6EghQ6
+HMOQ1sOJYSL6oojxkQn+YxYzety4BMGvjyR1MEzUsaRKDgMhjWwVbsjKmQIjCZr30ldKmupyCqzl
+8ya4oDw/sqswVAPRohiv/LRGlN9Opt5k6nS6IWdLqlyvdlyEcGrXscgGnSSLdqMbi2LTcsUqoq1b
+qinlzuU51e7dlWL17jWK6q9gpIEHG25ixSq+w4xfcSPcOPJFdO0kWxb32DJjzJk1D26Wwa/neqA7
+j96rTelpw6lDr/4M2fRrt3ZFz05X+/bf3LpRF+49t61t4OT6Evd9YvjxqiCXIw+51DnfkDqlpz0r
+0TrZrTeXCNHOvIOo6A4U/4ALXhh5WkCrLUWfftbRxRPWV4+v/r39+zX+s+JXZp55SnUi1X/RfEed
+Y6MYONMt2DFIkxNsQVgUfAtSOF0JymGoSl4cZpjchyQJJyJgp5TYVH0iWdgQihPBIqFIKrr4kCvG
+TFYZjQ4BhWNsOhbE4zYstvgjQUGW1WN/Rf5zZB3gLGnkjM4kiRiU/jQpo5RWkqYlgv1sqQ9vYHK5
+woZj/iHmmfCQqCaZB7WZj3Fw0uPhnG6OYKad+4C0n57SJIikn7jFpaCgxSnSQJ9PKWroFgU2cY+A
+XjYK0DjR9TnkinlSWqZsSuLiHqdzkKfoeyyJOup4kRJoE6prxCTgqUSK5+qBZhFaKzQx4pmrrV/1
+ek1dwC6z06bDOvr+5rG6yKnsnyc22yEwTk1aJbSpjCejk1paSwxh2n7JLSnafAtMuKWMm2W55nY7
+I7mfrpsJllQmCu834E65zb31MqNuj0fuyy+kCFJbLcDryGMwJmkm3IhcxjK80G8QN/zsxJLUafHF
+IWYcMKAcUwzdwx/XMOF5I4OMqC0nHxJWd95lurIM3LnMErUExzwDoyb/FJp+Iq+MaWv1hYqzDaQS
+3a9rRRutas3vKr00ybDCTF+htEaNCEq4Yo2HFyVz3fWNHoOdanNkA7Tx2aMmq7Y5bLf9qsRwQ7To
+eTdbPXc8BfPxZN50V41v0n4jW7XQg9szNN8+Ho5FaaUx3niOgev+C3kUoHFW+RQ2Zol55lLYOC1l
+nn+O8Oikd2q65aWnXoncrCPB5uutpy37ExjXrkSxuJ/+8u62aziv7z18HajwRjy4ooZ3G0+5avTu
+ARfVzLPnNKTVl/dzzEEDnnhi2Z989BdJ9Tw9Uk0PKDjU5YM6dUCsXrg+07O2Gj/J2W1d/w278pq/
+SWKP3T/7mS2A+nsbAWlwuwPKzHUKbEHsGvgC0ElIevmCoAuwdRF3FcyCqFORBsvDwQt6K11PC+EA
+BeYV7pkQeCMMHt5WyEJ8fPB5MKRdP2Y4vxryb2+B+5cOAcieCZLqhzYsIhFTxsAj0m+HSmTiCZvI
+CiNCEX74m2L+FGNoRSd2QWdZzOEovlc/4nGxiyq7YvLIuERPVVA87QPjyB6Fveslyo0cY9SlYDIU
+OlpsPqBKDPo4KD0KUq+EogNkG8c4uftdDY1ZAUsVGWka4kESJi6U1SQbmUgkXtJ5WNykGqnoyW1p
+MZTNGyUpN9jJU6IShHbrmyoJ+QpqkHCVr1Sk9WzJylrmEjFaK6Uu18hLTanwl8B8Xi/TR8xituiY
+sPylBNHjw2Qqk5U4fKE0M0nD5VlTmgu7JjaByM0khrNi3pylKcuZwHJWcpHqxKUm22lOUMLzm/6Z
+pxfrac97fjKf9BwmP89IyX8ic6ACFQr7Cio+rMQKoXjUI0MFHxqCAgAAOw==
+
+------=_NextPart_000_005D_01CB00E2.1D7273C0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.cs.auckland.ac.nz/software/AlgAnim/niemann/s_fig34.gif
+
+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
+
+------=_NextPart_000_005D_01CB00E2.1D7273C0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.cs.auckland.ac.nz/software/AlgAnim/niemann/s_fig35.gif
+
+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
+
+------=_NextPart_000_005D_01CB00E2.1D7273C0--

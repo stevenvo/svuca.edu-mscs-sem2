@@ -1,0 +1,31 @@
+I have a few IoT ideas that I want to implement:
+
+1. an IoT-enabled Personal Assistant box (read: Amazon Echo, Siri, Cortana, Google Now) that can do basic tasks such as: 
+   - understand English commands and answer the questions
+   - basic calculation using Wolfram Alpha API
+   - connect to internet to retrieve descriptions
+   - record voice, music using command
+   - use humidity sensor for weather forecast
+   - use heat sensor for temperature read
+   - play music
+   
+2. an indoor geolocation solution using iBeacon and BLE on mobile device.
+   - 4-8 ibeacon devices setup as geofencing solution
+   - an app on mobile device to interact with the iBeacon and triangulate the location
+   - Machine Learning to sample location inside a hall, room
+   - a map system to setup the venue layout and tracking. 
+   
+
+3. a digital arts curator 
+   - 3-4 ibeancon devices each attached to an art (draw, photo)
+   - if the user steps closer to the art, his phone will show the description of the arts
+   - the system will record the statistics of how likely people view the art, or how long they stay.
+   
+
+4. an IoT-enabled ordering system
+   - this idea can be implemented in any F&B vendors such as StarBuck or KFC. When a user sit at the table in a restaurant, they can start ordering their food/drinks using their smartphone phone and make payment using Google eWallet or Apple eWallet. 
+   - the order can be made if the user is near to an iBeacon (i.e. geofencing, inside the restaurant), and via bluetooth or Wifi
+   - the vendor system will receive the order and start preparing the food/drink.
+   
+
+
